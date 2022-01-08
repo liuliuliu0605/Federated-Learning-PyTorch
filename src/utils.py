@@ -3,6 +3,7 @@
 # Python version: 3.6
 
 import copy
+import os
 import torch
 from torchvision import datasets, transforms
 from sampling import mnist_iid, mnist_noniid, mnist_noniid_unequal
@@ -70,6 +71,32 @@ def get_dataset(args):
                 user_groups = mnist_noniid(train_dataset, args.num_users)
 
     return train_dataset, test_dataset, user_groups
+
+def init_seed(seed):
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    # np.random.seed(seed)
+    # random.seed(seed)
+    torch.backends.cudnn.deterministic = True
+
+def get_device(args):
+    local_rank = -1 if os.environ.get('LOCAL_RANK') is None else int(os.environ['LOCAL_RANK'])
+    if local_rank != -1:
+        assert local_rank < torch.cuda.device_count()
+        # allocate GPU according to local_rank
+        torch.cuda.set_device(local_rank)
+        device = 'cuda'
+    elif args.gpu is not None:
+        torch.cuda.set_device(args.gpu)
+        device = 'cuda'
+    elif args.data_parallel is not False:
+        # set master GPU
+        torch.cuda.set_device(0)
+        device = 'cuda'
+    else:
+        device = 'cpu'
+
+    return device
 
 
 def average_weights(w):

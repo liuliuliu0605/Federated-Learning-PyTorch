@@ -23,11 +23,19 @@ The baseline experiment trains the model in the conventional way.
 
 * To run the baseline experiment with MNIST on MLP using CPU:
 ```
-python src/baseline_main.py --model=mlp --dataset=mnist --epochs=10
+python baseline_main.py --model=mlp --dataset=mnist --epochs=10
 ```
 * Or to run it on GPU (eg: if gpu:0 is available):
 ```
-python src/baseline_main.py --model=mlp --dataset=mnist --gpu=0 --epochs=10
+python baseline_main.py --model=mlp --dataset=mnist --gpu=0 --epochs=10
+```
+* Or to run it on GPU in DP mode (eg: if gpu:0 and gpu:1 are available):
+```
+CUDA_VISIBLE_DEVICES=0,1 python baseline_main.py --model=mlp --dataset=mnist --data_parallel --epochs=10
+```
+* Or to run it on GPU in DDP mode (eg: if gpu:0 and gpu:1 are available):
+```
+CUDA_VISIBLE_DEVICES=0,1 torchrun --nproc_per_node 2  baseline_main.py --model=mlp --dataset=mnist --epochs=10
 ```
 -----
 

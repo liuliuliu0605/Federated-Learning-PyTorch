@@ -42,13 +42,21 @@ def args_parser():
                         help="Whether use max pooling rather than \
                         strided convolutions")
 
+    # gpu usage
+    gpu_group = parser.add_mutually_exclusive_group()
+    gpu_group.add_argument('--gpu', default=None, type=int, help="To use cuda, set \
+                            to a specific GPU ID. Default set to use CPU.")
+    gpu_group.add_argument('--data_parallel', action='store_true', help="To use \
+                            data parallelism")
+    gpu_group.add_argument('--local_rank', type=int, default=None, help="To use \
+                            distributed data parallelism and will be automatically \
+                            set by torch.distributed.launch")
+
     # other arguments
     parser.add_argument('--dataset', type=str, default='mnist', help="name \
                         of dataset")
     parser.add_argument('--num_classes', type=int, default=10, help="number \
                         of classes")
-    parser.add_argument('--gpu', default=None, help="To use cuda, set \
-                        to a specific GPU ID. Default set to use CPU.")
     parser.add_argument('--optimizer', type=str, default='sgd', help="type \
                         of optimizer")
     parser.add_argument('--iid', type=int, default=1,
