@@ -1,0 +1,37 @@
+Namespace(cluster_similarity=0.8, data_parallel=False, dataset='fmnist', epochs=200, fake=False, frac=1.0, gpu=0, iid=0, kernel_num=9, kernel_sizes='3,4,5', local_bs=10, local_ep=1, local_iter=10, local_rank=None, log_location='../logs', lr=0.01, max_pool='True', mix_ep=3, model='lr', momentum=0.5, norm='batch_norm', num_channels=1, num_classes=10, num_clusters=5, num_filters=32, num_users=100, optimizer='sgd', seed=10, stopping_rounds=10, topo='complete', unequal=0, verbose=0)
+
+Federated parameters:
+    Model     : lr
+    Optimizer : sgd
+    Learning  : 0.01
+    Global Rounds   : 200
+    Local Iterations   : 10
+    Mix cycles     : 3
+    Non-IID
+    Fraction of users  : 1.0
+    Local Batch size   : 10
+
+Network details:
+    Users       : 100
+    Clusters    : 5
+    Topology    : complete
+    Cluster Similarity : 0.8
+
+
+Topo (p=1.00000):
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+
+Label distribution in clusters:
+-Cluster 0:  [(0, 2163), (1, 2157), (2, 987), (3, 933), (4, 1000), (5, 920), (6, 954), (7, 966), (8, 936), (9, 984)]
+-Cluster 1:  [(0, 991), (1, 929), (2, 2161), (3, 2159), (4, 970), (5, 950), (6, 950), (7, 970), (8, 982), (9, 938)]
+-Cluster 2:  [(0, 944), (1, 976), (2, 933), (3, 987), (4, 2129), (5, 2191), (6, 968), (7, 952), (8, 995), (9, 925)]
+-Cluster 3:  [(0, 958), (1, 962), (2, 969), (3, 951), (4, 965), (5, 955), (6, 2172), (7, 2148), (8, 956), (9, 964)]
+-Cluster 4:  [(0, 944), (1, 976), (2, 950), (3, 970), (4, 936), (5, 984), (6, 956), (7, 964), (8, 2131), (9, 2189)]
+num of params:  7840
+  0%|          | 0/200 [00:00<?, ?it/s]/data/magnolia/Federated-Learning-PyTorch/src/update.py:27: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  return torch.tensor(image), torch.tensor(label)
+  0%|          | 1/200 [00:06<20:34,  6.21s/it]  1%|          | 2/200 [00:12<21:17,  6.45s/it]  2%|▏         | 3/200 [00:19<21:10,  6.45s/it]  2%|▏         | 4/200 [00:26<21:27,  6.57s/it]  2%|▎         | 5/200 [00:33<21:51,  6.73s/it]  3%|▎         | 6/200 [00:40<22:07,  6.84s/it]  4%|▎         | 7/200 [00:47<22:07,  6.88s/it]  4%|▍         | 8/200 [00:53<22:01,  6.89s/it]  4%|▍         | 9/200 [01:00<21:52,  6.87s/it]  5%|▌         | 10/200 [01:07<21:53,  6.91s/it]  6%|▌         | 11/200 [01:14<21:46,  6.91s/it]  6%|▌         | 12/200 [01:21<21:40,  6.92s/it]  6%|▋         | 13/200 [01:28<21:40,  6.95s/it]  7%|▋         | 14/200 [01:35<21:33,  6.95s/it]  8%|▊         | 15/200 [01:42<21:21,  6.93s/it]  8%|▊         | 16/200 [01:49<21:16,  6.94s/it]  8%|▊         | 17/200 [01:56<21:09,  6.94s/it]  9%|▉         | 18/200 [02:03<21:04,  6.95s/it] 10%|▉         | 19/200 [02:10<21:21,  7.08s/it] 10%|█         | 20/200 [02:17<21:13,  7.07s/it] 10%|█         | 21/200 [02:24<21:05,  7.07s/it] 11%|█         | 22/200 [02:31<20:54,  7.05s/it]

@@ -1,0 +1,178 @@
+Namespace(cluster_similarity=0.8, data_parallel=False, dataset='fmnist', epochs=200, fake=False, frac=1.0, gpu=0, iid=0, kernel_num=9, kernel_sizes='3,4,5', local_bs=10, local_ep=1, local_iter=10, local_rank=None, log_location='../logs/fmnist/complete', lr=0.01, max_pool='True', mix_ep=1, model='lr', momentum=0.5, norm='batch_norm', num_channels=1, num_classes=10, num_clusters=5, num_filters=32, num_users=100, optimizer='sgd', seed=10, stopping_rounds=10, topo='complete', unequal=0, verbose=1)
+
+Federated parameters:
+    Model     : lr
+    Optimizer : sgd
+    Learning  : 0.01
+    Global Rounds   : 200
+    Local Iterations   : 10
+    Mix cycles     : 1
+    Non-IID
+    Fraction of users  : 1.0
+    Local Batch size   : 10
+
+Network details:
+    Users       : 100
+    Clusters    : 5
+    Topology    : complete
+    Cluster Similarity : 0.8
+
+
+Topo (p=1.00000):
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+
+Label distribution in clusters:
+-Cluster 0:  [(0, 2163), (1, 2157), (2, 987), (3, 933), (4, 1000), (5, 920), (6, 954), (7, 966), (8, 936), (9, 984)]
+-Cluster 1:  [(0, 991), (1, 929), (2, 2161), (3, 2159), (4, 970), (5, 950), (6, 950), (7, 970), (8, 982), (9, 938)]
+-Cluster 2:  [(0, 944), (1, 976), (2, 933), (3, 987), (4, 2129), (5, 2191), (6, 968), (7, 952), (8, 995), (9, 925)]
+-Cluster 3:  [(0, 958), (1, 962), (2, 969), (3, 951), (4, 965), (5, 955), (6, 2172), (7, 2148), (8, 956), (9, 964)]
+-Cluster 4:  [(0, 944), (1, 976), (2, 950), (3, 970), (4, 936), (5, 984), (6, 956), (7, 964), (8, 2131), (9, 2189)]
+num of params:  7840
+
+ | Global Training Round : 1 |
+
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.302241
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.351914
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.360044
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.268766
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.272136
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.243587
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.222390
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.251822
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.270368
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.336139
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.271754
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.314753
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.243002
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.297136
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.262676
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.212713
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.286955
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.340057
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.326784
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.321432
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.323534
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.281881
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.326186
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.317552
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.239318
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.330176
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.274591
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.341046
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.274109
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.342052
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.314175
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.349642
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.217516
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.299440
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.255955
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.237538
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.288026
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.292813
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.337108
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.236624
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.204011
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.319120
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.305788
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.256464
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.327779
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.293095
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.296370
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.349192
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.362194
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.331803
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.318319
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.326625
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.344078
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.298611
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.307106
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.317454
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.246247
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.260659
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.353347
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.317670
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.314508
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.319168
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.333028
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.229853
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.318191
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.263173
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.344101
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.247678
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.346991
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.237538
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.290067
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.315492
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.306102
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.364363
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.357802
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.235554
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.280951
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.283855
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.306206
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.235222
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.320495
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.353784
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.331487
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.294858
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.301821
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.293899
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.300086
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.302618
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.207681
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.255340
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.268658
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.222553
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.270870
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.307068
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.317833
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.287812
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.330273
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.266656
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.288047
+| Global Round : 0 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.318979
+Global estimated params:
+
+ | Global Training Round : 2 |
+
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.269483
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.142945
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.217170
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.292351
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.160314
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.278545
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.171458
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.214700
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.245224
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.140432
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.148961
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.301544
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.300830
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.226849
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.194858
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.207572
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.232834
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.270766
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.229642
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.069587
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.257485
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.152116
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.183711
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.259036
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.288478
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.242731
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.174764
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.234179
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.340486
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.312963
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.223713
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.124513
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.241580
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.296469
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.302671
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.171122
+| Global Round : 1 | Local Epoch : <built-in function iter> | [0/600 (0%)]	Loss: 2.315664

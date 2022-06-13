@@ -1,0 +1,536 @@
+Namespace(cluster_similarity=0.5, data_parallel=False, dataset='fmnist', epochs=600, fake=True, frac=1.0, gpu=0, iid=0, kernel_num=9, kernel_sizes='3,4,5', local_bs=10, local_ep=1, local_rank=None, log_location='../logs/fmnist/complete', lr=0.01, max_pool='True', mix_ep=20, model='lr', momentum=0.5, norm='batch_norm', num_channels=1, num_classes=10, num_clusters=5, num_filters=32, num_users=100, optimizer='sgd', seed=1, stopping_rounds=10, topo='complete', unequal=0, verbose=0)
+
+Experimental details:
+    Model     : lr
+    Optimizer : sgd
+    Learning  : 0.01
+    Global Rounds   : 600
+    Local Epoches   : 1
+    Mix Epoches     : 20
+
+Network details:
+    Users       : 100
+    Clusters    : 5
+    Topology    : complete
+    Cluster Similarity : 0.5
+
+Federated parameters:
+    Non-IID
+    Fraction of users  : 1.0
+    Local Batch size   : 10
+    Local Epochs       : 1
+
+fake path: ../logs/fmnist/complete/2022-04-01_13:13:04_Dataset[fmnist]_Cluster[5]_Sim[0.50]_Topo[complete]_Mix[20]_lr[0.010]_frac[1.0].pkl
+
+Topo (p=1.00000):
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+Clusters:  [[1, 4, 9, 10, 13, 17, 19, 20, 52, 54, 60, 61, 64, 66, 68, 71, 76, 82, 89, 98], [6, 7, 31, 33, 34, 35, 36, 39, 40, 43, 44, 55, 59, 62, 69, 70, 78, 92, 93, 99], [11, 14, 21, 25, 26, 30, 46, 49, 53, 58, 65, 72, 74, 79, 81, 85, 87, 90, 91, 96], [0, 8, 16, 22, 27, 29, 32, 41, 45, 47, 48, 57, 67, 73, 77, 83, 84, 86, 88, 97], [2, 3, 5, 12, 15, 18, 23, 24, 28, 37, 38, 42, 50, 51, 56, 63, 75, 80, 94, 95]]
+
+Label distribution in clusters:
+-Cluster 0:  [(0, 3586), (1, 3614), (2, 616), (3, 584), (4, 594), (5, 606), (6, 589), (7, 611), (8, 603), (9, 597)]
+-Cluster 1:  [(0, 624), (1, 576), (2, 3615), (3, 3585), (4, 641), (5, 559), (6, 596), (7, 604), (8, 601), (9, 599)]
+-Cluster 2:  [(0, 619), (1, 581), (2, 582), (3, 618), (4, 3556), (5, 3644), (6, 592), (7, 608), (8, 604), (9, 596)]
+-Cluster 3:  [(0, 594), (1, 606), (2, 583), (3, 617), (4, 616), (5, 584), (6, 3594), (7, 3606), (8, 601), (9, 599)]
+-Cluster 4:  [(0, 577), (1, 623), (2, 604), (3, 596), (4, 593), (5, 607), (6, 629), (7, 571), (8, 3591), (9, 3609)]
+LR(
+  (layer): Linear(in_features=784, out_features=10, bias=False)
+  (softmax): Softmax(dim=1)
+)
+num of params:  7840
+  0%|          | 0/600 [00:00<?, ?it/s]  4%|▍         | 23/600 [00:00<00:02, 221.79it/s]  8%|▊         | 46/600 [00:00<00:02, 191.66it/s] 11%|█▏        | 68/600 [00:00<00:02, 202.34it/s] 15%|█▌        | 90/600 [00:00<00:02, 207.33it/s] 19%|█▊        | 112/600 [00:00<00:02, 211.52it/s]
+ | Global Training Round : 1 |
+
+Remain energy: 5000
+
+ | Global Training Round : 2 |
+
+Remain energy: 4996.071007451421
+
+ | Global Training Round : 3 |
+
+Remain energy: 4992.155835898017
+
+ | Global Training Round : 4 |
+
+Remain energy: 4988.267282417454
+
+ | Global Training Round : 5 |
+
+Remain energy: 4984.381127586179
+
+ | Global Training Round : 6 |
+
+Remain energy: 4980.493895081222
+
+ | Global Training Round : 7 |
+
+Remain energy: 4976.611372701845
+
+ | Global Training Round : 8 |
+
+Remain energy: 4972.719012505095
+
+ | Global Training Round : 9 |
+
+Remain energy: 4968.8372259656435
+
+ | Global Training Round : 10 |
+
+Remain energy: 4964.921441872993
+
+ | Global Training Round : 11 |
+
+Remain energy: 4961.006793861742
+
+ | Global Training Round : 12 |
+
+Remain energy: 4957.086419233346
+
+ | Global Training Round : 13 |
+
+Remain energy: 4953.165244215002
+
+ | Global Training Round : 14 |
+
+Remain energy: 4949.216118209059
+
+ | Global Training Round : 15 |
+
+Remain energy: 4945.222484549469
+
+ | Global Training Round : 16 |
+
+Remain energy: 4941.225022129998
+
+ | Global Training Round : 17 |
+
+Remain energy: 4937.200359341731
+
+ | Global Training Round : 18 |
+
+Remain energy: 4933.14154502802
+
+ | Global Training Round : 19 |
+
+Remain energy: 4929.062480419988
+
+ | Global Training Round : 20 |
+
+Remain energy: 4924.946737003111
+
+ | Global Training Round : 21 |
+
+Remain energy: 4916.8664583052
+
+ | Global Training Round : 22 |
+
+Remain energy: 4912.996967310163
+
+ | Global Training Round : 23 |
+
+Remain energy: 4909.122991191436
+
+ | Global Training Round : 24 |
+
+Remain energy: 4905.245166790047
+
+ | Global Training Round : 25 |
+
+Remain energy: 4901.366269655298
+
+ | Global Training Round : 26 |
+
+Remain energy: 4897.479840962095
+
+ | Global Training Round : 27 |
+
+Remain energy: 4893.587290510665
+
+ | Global Training Round : 28 |
+
+Remain energy: 4889.6885421241495
+
+ | Global Training Round : 29 |
+
+Remain energy: 4885.783887190869
+
+ | Global Training Round : 30 |
+
+Remain energy: 4881.874419293742
+
+ | Global Training Round : 31 |
+
+Remain energy: 4877.954119743551
+
+ | Global Training Round : 32 |
+
+Remain energy: 4874.022230515864
+
+ | Global Training Round : 33 |
+
+Remain energy: 4870.069796496499
+
+ | Global Training Round : 34 |
+
+Remain energy: 4866.095711152796
+
+ | Global Training Round : 35 |
+
+Remain energy: 4862.102367598205
+
+ | Global Training Round : 36 |
+
+Remain energy: 4858.101734502114
+
+ | Global Training Round : 37 |
+
+Remain energy: 4854.09107921271
+
+ | Global Training Round : 38 |
+
+Remain energy: 4850.0316169524185
+
+ | Global Training Round : 39 |
+
+Remain energy: 4845.934095355055
+
+ | Global Training Round : 40 |
+
+Remain energy: 4841.813195308306
+
+ | Global Training Round : 41 |
+
+Remain energy: 4834.016513910602
+
+ | Global Training Round : 42 |
+
+Remain energy: 4830.14272417707
+
+ | Global Training Round : 43 |
+
+Remain energy: 4826.2652917767255
+
+ | Global Training Round : 44 |
+
+Remain energy: 4822.386439471724
+
+ | Global Training Round : 45 |
+
+Remain energy: 4818.50001077852
+
+ | Global Training Round : 46 |
+
+Remain energy: 4814.607460327089
+
+ | Global Training Round : 47 |
+
+Remain energy: 4810.708351368809
+
+ | Global Training Round : 48 |
+
+Remain energy: 4806.803696435529
+
+ | Global Training Round : 49 |
+
+Remain energy: 4802.892755056456
+
+ | Global Training Round : 50 |
+
+Remain energy: 4798.974216907633
+
+ | Global Training Round : 51 |
+
+Remain energy: 4795.042400332288
+
+ | Global Training Round : 52 |
+
+Remain energy: 4791.089966312924
+
+ | Global Training Round : 53 |
+
+Remain energy: 4787.120169860626
+
+ | Global Training Round : 54 |
+
+Remain energy: 4783.126031220718
+
+ | Global Training Round : 55 |
+
+Remain energy: 4779.121904318539
+
+ | Global Training Round : 56 |
+
+Remain energy: 4775.111249029133
+
+ | Global Training Round : 57 |
+
+Remain energy: 4771.05178676884
+
+ | Global Training Round : 58 |
+
+Remain energy: 4766.949108541609
+
+ | Global Training Round : 59 |
+
+Remain energy: 4762.8333651247285
+
+ | Global Training Round : 60 |
+
+Remain energy: 4758.957768277637
+
+ | Global Training Round : 61 |
+
+Remain energy: 4750.875403114692
+
+ | Global Training Round : 62 |
+
+Remain energy: 4746.996550809691
+
+ | Global Training Round : 63 |
+
+Remain energy: 4743.110423851435
+
+ | Global Training Round : 64 |
+
+Remain energy: 4739.217571665057
+
+ | Global Training Round : 65 |
+
+Remain energy: 4735.3184627067785
+
+ | Global Training Round : 66 |
+
+Remain energy: 4731.411154760267
+
+ | Global Training Round : 67 |
+
+Remain energy: 4727.502866394422
+
+ | Global Training Round : 68 |
+
+Remain energy: 4723.584328245601
+
+ | Global Training Round : 69 |
+
+Remain energy: 4719.652511670259
+
+ | Global Training Round : 70 |
+
+Remain energy: 4715.700077650891
+
+ | Global Training Round : 71 |
+
+Remain energy: 4711.730281198592
+
+ | Global Training Round : 72 |
+
+Remain energy: 4707.7392159693845
+
+ | Global Training Round : 73 |
+
+Remain energy: 4703.732015656507
+
+ | Global Training Round : 74 |
+
+Remain energy: 4699.7213603671025
+
+ | Global Training Round : 75 |
+
+Remain energy: 4695.661898106809
+
+ | Global Training Round : 76 |
+
+Remain energy: 4691.559219879578
+
+ | Global Training Round : 77 |
+
+Remain energy: 4687.568993313297
+
+ | Global Training Round : 78 |
+
+Remain energy: 4683.693173557096
+
+ | Global Training Round : 79 |
+
+Remain energy: 4679.81004778982
+
+ | Global Training Round : 80 |
+
+Remain energy: 4675.922629800447
+
+ | Global Training Round : 81 |
+
+Remain energy: 4668.640668643463
+
+ | Global Training Round : 82 |
+
+Remain energy: 4664.741559685183
+
+ | Global Training Round : 83 |
+
+Remain energy: 4660.836904751903
+
+ | Global Training Round : 84 |
+
+Remain energy: 4656.9238777582195
+
+ | Global Training Round : 85 |
+
+Remain energy: 4653.002959071975
+
+ | Global Training Round : 86 |
+
+Remain energy: 4649.017437274108
+
+ | Global Training Round : 87 |
+
+Remain energy: 4645.065003254741
+
+ | Global Training Round : 88 |
+
+Remain energy: 4641.095206802441
+
+ | Global Training Round : 89 |
+
+Remain energy: 4637.104141573233
+
+ | Global Training Round : 90 |
+
+Remain energy: 4633.092853693545
+
+ | Global Training Round : 91 |
+
+Remain energy: 4629.086285970953
+
+ | Global Training Round : 92 |
+
+Remain energy: 4625.0864728729175
+
+ | Global Training Round : 93 |
+
+Remain energy: 4621.050144007989
+
+ | Global Training Round : 94 |
+
+Remain energy: 4617.051970834169
+
+ | Global Training Round : 95 |
+
+Remain energy: 4613.17249236434
+
+ | Global Training Round : 96 |
+
+Remain energy: 4609.243072302942
+
+ | Global Training Round : 97 |
+
+Remain energy: 4605.301709707352
+
+ | Global Training Round : 98 |
+
+Remain energy: 4601.406531577235
+
+ | Global Training Round : 99 |
+
+Remain energy: 4597.497427057384
+
+ | Global Training Round : 100 |
+
+Remain energy: 4593.585214509617
+
+ | Global Training Round : 101 |
+
+Remain energy: 4585.1926309905
+
+ | Global Training Round : 102 |
+
+Remain energy: 4581.204742091786
+
+ | Global Training Round : 103 |
+
+Remain energy: 4577.246002438776
+
+ | Global Training Round : 104 |
+
+Remain energy: 4573.275907726902
+
+ | Global Training Round : 105 |
+
+Remain energy: 4569.256947249875
+
+ | Global Training Round : 106 |
+
+Remain energy: 4565.2456593701845
+
+ | Global Training Round : 107 |
+
+Remain energy: 4561.2394987109265
+
+ | Global Training Round : 108 |
+
+Remain energy: 4557.166430135307
+
+ | Global Training Round : 109 |
+
+Remain energy: 4553.1472365670425
+
+ | Global Training Round : 110 |
+
+Remain energy: 4549.207484475926
+
+ | Global Training Round : 111 |
+
+Remain energy: 4545.249944477539
+
+ | Global Training Round : 112 |
+
+Remain energy: 4541.36589858839
+
+ | Global Training Round : 113 |
+
+Remain energy: 4537.433159843709
+
+ | Global Training Round : 114 |
+
+Remain energy: 4533.497001602438
+
+ | Global Training Round : 115 |
+
+Remain energy: 4529.546099041137
+
+ | Global Training Round : 116 |
+
+Remain energy: 4525.597963205987
+
+ | Global Training Round : 117 |
+
+Remain energy: 4521.635235580872
+
+ | Global Training Round : 118 |
+
+Remain energy: 4517.711080799985
+
+ | Global Training Round : 119 |
+
+Remain energy: 4513.7735269326095
+
+ | Global Training Round : 120 |
+
+Remain energy: 4509.760742658256
+
+ | Global Training Round : 121 |
+
+Remain energy: 4501.529309297185
+
+ | Global Training Round : 122 |
+
+Remain energy: 4497.495810516779
+ 20%|██        | 121/600 [00:00<00:02, 208.28it/s]
+
+ Terminated for using up energy budget (500 J)!
+
+ Total Run Time: 7.2914

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+source /data/magnolia/venv_set/torch/bin/activate
+
+sim=0.
+optm=sgd
+lr=0.01
+frac=1.0
+epochs=400
+
+python pfl_main.py --model=cnn --dataset=cifar --gpu=0 --iid 0 --epochs=400 --local_ep=1 --optimizer=$optm --lr=$lr --frac $frac --topo complete0 --cluster_similarity $sim --verbose 0 --gpu 1

@@ -1,0 +1,35 @@
+Namespace(cluster_similarity=1.0, data_parallel=False, dataset='fmist', epochs=600, fake=False, frac=1.0, gpu=0, iid=0, kernel_num=9, kernel_sizes='3,4,5', local_bs=10, local_ep=1, local_rank=None, lr=0.01, max_pool='True', mix_ep=5, model='lr', momentum=0.5, norm='batch_norm', num_channels=1, num_classes=10, num_clusters=5, num_filters=32, num_users=100, optimizer='sgd', seed=1, stopping_rounds=10, topo='complete', unequal=0, verbose=0)
+
+Experimental details:
+    Model     : lr
+    Optimizer : sgd
+    Learning  : 0.01
+    Global Rounds   : 600
+    Local Epoches   : 1
+    Mix Epoches     : 5
+
+Network details:
+    Users       : 100
+    Clusters    : 5
+    Topology    : complete
+    Cluster Similarity : 1.0
+
+Federated parameters:
+    Non-IID
+    Fraction of users  : 1.0
+    Local Batch size   : 10
+    Local Epochs       : 1
+
+
+Topo (p=1.00000):
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+Traceback (most recent call last):
+  File "pfl_main.py", line 61, in <module>
+    train_dataset, test_dataset, split = get_dataset_cluster(args, users_groups=config.users_groups)
+  File "/data/magnolia/Federated-Learning-PyTorch/src/utils.py", line 148, in get_dataset_cluster
+    user_groups_list, idxs_groups = cifar_noniid_cluster(train_dataset, args.num_users,
+UnboundLocalError: local variable 'train_dataset' referenced before assignment

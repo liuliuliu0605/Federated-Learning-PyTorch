@@ -1,0 +1,1546 @@
+Namespace(cluster_similarity=0.0, data_parallel=False, dataset='fmnist', epochs=200, fake=False, frac=1.0, gpu=0, iid=0, kernel_num=9, kernel_sizes='3,4,5', local_bs=50, local_ep=1, local_rank=None, lr=0.01, max_pool='True', mix_ep=3, model='lr', momentum=0.5, norm='batch_norm', num_channels=1, num_classes=10, num_clusters=5, num_filters=32, num_users=100, optimizer='sgd', seed=1, stopping_rounds=10, topo='ring', unequal=0, verbose=0)
+
+Experimental details:
+    Model     : lr
+    Optimizer : sgd
+    Learning  : 0.01
+    Global Rounds   : 200
+    Local Epoches   : 1
+    Mix Epoches     : 3
+
+Network details:
+    Users       : 100
+    Clusters    : 5
+    Topology    : ring
+    Cluster Similarity : 0.0
+
+Federated parameters:
+    Non-IID
+    Fraction of users  : 1.0
+    Local Batch size   : 50
+    Local Epochs       : 1
+
+
+Topo (p=0.70911):
+0.333,0.333,0.000,0.000,0.333
+0.333,0.333,0.333,0.000,0.000
+0.000,0.333,0.333,0.333,0.000
+0.000,0.000,0.333,0.333,0.333
+0.333,0.000,0.000,0.333,0.333
+
+Label distribution in clusters:
+-Cluster 0:  [(0, 6000), (1, 6000), (2, 0), (3, 0), (4, 0), (5, 0), (6, 0), (7, 0), (8, 0), (9, 0)]
+-Cluster 1:  [(0, 0), (1, 0), (2, 6000), (3, 6000), (4, 0), (5, 0), (6, 0), (7, 0), (8, 0), (9, 0)]
+-Cluster 2:  [(0, 0), (1, 0), (2, 0), (3, 0), (4, 6000), (5, 6000), (6, 0), (7, 0), (8, 0), (9, 0)]
+-Cluster 3:  [(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (5, 0), (6, 6000), (7, 6000), (8, 0), (9, 0)]
+-Cluster 4:  [(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (5, 0), (6, 0), (7, 0), (8, 6000), (9, 6000)]
+LR(
+  (layer): Linear(in_features=784, out_features=10, bias=False)
+  (softmax): Softmax(dim=1)
+)
+num of params:  7840
+  0%|          | 0/200 [00:00<?, ?it/s]/data/magnolia/Federated-Learning-PyTorch/src/update.py:27: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  return torch.tensor(image), torch.tensor(label)
+  0%|          | 1/200 [00:16<54:44, 16.51s/it]  1%|          | 2/200 [00:33<56:11, 17.03s/it]  2%|▏         | 3/200 [00:51<56:24, 17.18s/it]  2%|▏         | 4/200 [01:08<56:12, 17.21s/it]  2%|▎         | 5/200 [01:26<56:33, 17.40s/it]  3%|▎         | 6/200 [01:43<56:16, 17.40s/it]  4%|▎         | 7/200 [02:01<56:02, 17.42s/it]  4%|▍         | 8/200 [02:18<55:36, 17.38s/it]  4%|▍         | 9/200 [02:35<55:04, 17.30s/it]  5%|▌         | 10/200 [02:52<54:48, 17.31s/it]  6%|▌         | 11/200 [03:10<54:35, 17.33s/it]  6%|▌         | 12/200 [03:27<54:18, 17.33s/it]  6%|▋         | 13/200 [03:44<53:53, 17.29s/it]  7%|▋         | 14/200 [04:02<53:32, 17.27s/it]  8%|▊         | 15/200 [04:19<53:21, 17.31s/it]  8%|▊         | 16/200 [04:36<53:19, 17.39s/it]  8%|▊         | 17/200 [04:54<52:55, 17.35s/it]  9%|▉         | 18/200 [05:11<52:41, 17.37s/it] 10%|▉         | 19/200 [05:29<52:38, 17.45s/it] 10%|█         | 20/200 [05:46<52:12, 17.40s/it] 10%|█         | 21/200 [06:04<52:00, 17.43s/it] 11%|█         | 22/200 [06:21<52:03, 17.55s/it] 12%|█▏        | 23/200 [06:39<51:27, 17.44s/it] 12%|█▏        | 24/200 [06:56<51:03, 17.40s/it] 12%|█▎        | 25/200 [07:14<51:03, 17.50s/it] 13%|█▎        | 26/200 [07:31<50:28, 17.40s/it] 14%|█▎        | 27/200 [07:48<50:17, 17.44s/it] 14%|█▍        | 28/200 [08:06<49:59, 17.44s/it] 14%|█▍        | 29/200 [08:23<49:48, 17.48s/it] 15%|█▌        | 30/200 [08:41<49:49, 17.59s/it] 16%|█▌        | 31/200 [08:59<49:20, 17.52s/it] 16%|█▌        | 32/200 [09:16<48:53, 17.46s/it] 16%|█▋        | 33/200 [09:33<48:41, 17.49s/it] 17%|█▋        | 34/200 [09:51<48:05, 17.38s/it] 18%|█▊        | 35/200 [10:08<48:05, 17.48s/it] 18%|█▊        | 36/200 [10:26<47:51, 17.51s/it] 18%|█▊        | 37/200 [10:43<47:29, 17.48s/it] 19%|█▉        | 38/200 [11:01<47:01, 17.42s/it] 20%|█▉        | 39/200 [11:18<46:36, 17.37s/it] 20%|██        | 40/200 [11:35<46:20, 17.38s/it] 20%|██        | 41/200 [11:53<46:14, 17.45s/it] 21%|██        | 42/200 [12:10<45:54, 17.43s/it] 22%|██▏       | 43/200 [12:28<45:42, 17.47s/it] 22%|██▏       | 44/200 [12:45<45:07, 17.36s/it] 22%|██▎       | 45/200 [13:02<44:46, 17.33s/it] 23%|██▎       | 46/200 [13:19<44:26, 17.31s/it] 24%|██▎       | 47/200 [13:37<44:08, 17.31s/it] 24%|██▍       | 48/200 [13:54<44:10, 17.44s/it] 24%|██▍       | 49/200 [14:12<44:05, 17.52s/it] 25%|██▌       | 50/200 [14:30<43:55, 17.57s/it] 26%|██▌       | 51/200 [14:47<43:35, 17.55s/it] 26%|██▌       | 52/200 [15:04<42:58, 17.42s/it] 26%|██▋       | 53/200 [15:22<42:46, 17.46s/it] 27%|██▋       | 54/200 [15:39<42:22, 17.41s/it]
+ | Global Training Round : 1 |
+
+Global estimated params:
+
+ | Global Training Round : 2 |
+
+Global estimated params:
+ 
+Avg Training Stats after 2 global rounds:
+Training Loss : 1.5786685145894688
+ 
+Avg Testing Stats after 2 global rounds:
+Testing Accuracy: 17.4%
+Testing Loss: 2.2688732728362084
+
+ | Global Training Round : 3 |
+
+Global estimated params:
+
+ | Global Training Round : 4 |
+
+Global estimated params:
+ 
+Avg Training Stats after 4 global rounds:
+Training Loss : 1.636776263614496
+ 
+Avg Testing Stats after 4 global rounds:
+Testing Accuracy: 34.31999999999999%
+Testing Loss: 2.215492606163025
+
+ | Global Training Round : 5 |
+
+Global estimated params:
+
+ | Global Training Round : 6 |
+
+Global estimated params:
+ 
+Avg Training Stats after 6 global rounds:
+Training Loss : 1.5156253135204316
+ 
+Avg Testing Stats after 6 global rounds:
+Testing Accuracy: 22.009999999999998%
+Testing Loss: 2.2327926635742186
+
+ | Global Training Round : 7 |
+
+Global estimated params:
+
+ | Global Training Round : 8 |
+
+Global estimated params:
+ 
+Avg Training Stats after 8 global rounds:
+Training Loss : 1.523479387164116
+ 
+Avg Testing Stats after 8 global rounds:
+Testing Accuracy: 25.889999999999997%
+Testing Loss: 2.2064220011234283
+
+ | Global Training Round : 9 |
+
+Global estimated params:
+
+ | Global Training Round : 10 |
+
+Global estimated params:
+ 
+Avg Training Stats after 10 global rounds:
+Training Loss : 1.5718543512622518
+ 
+Avg Testing Stats after 10 global rounds:
+Testing Accuracy: 41.97%
+Testing Loss: 2.1237985849380494
+
+ | Global Training Round : 11 |
+
+Global estimated params:
+
+ | Global Training Round : 12 |
+
+Global estimated params:
+ 
+Avg Training Stats after 12 global rounds:
+Training Loss : 1.5093118861317634
+ 
+Avg Testing Stats after 12 global rounds:
+Testing Accuracy: 26.58%
+Testing Loss: 2.197660095989704
+
+ | Global Training Round : 13 |
+
+Global estimated params:
+
+ | Global Training Round : 14 |
+
+Global estimated params:
+ 
+Avg Training Stats after 14 global rounds:
+Training Loss : 1.5183290739854178
+ 
+Avg Testing Stats after 14 global rounds:
+Testing Accuracy: 29.03%
+Testing Loss: 2.17227797806263
+
+ | Global Training Round : 15 |
+
+Global estimated params:
+
+ | Global Training Round : 16 |
+
+Global estimated params:
+ 
+Avg Training Stats after 16 global rounds:
+Training Loss : 1.561333701312542
+ 
+Avg Testing Stats after 16 global rounds:
+Testing Accuracy: 44.86%
+Testing Loss: 2.079236426949501
+
+ | Global Training Round : 17 |
+
+Global estimated params:
+
+ | Global Training Round : 18 |
+
+Global estimated params:
+ 
+Avg Training Stats after 18 global rounds:
+Training Loss : 1.5068263003230096
+ 
+Avg Testing Stats after 18 global rounds:
+Testing Accuracy: 28.93%
+Testing Loss: 2.172739586234093
+
+ | Global Training Round : 19 |
+
+Global estimated params:
+
+ | Global Training Round : 20 |
+
+Global estimated params:
+ 
+Avg Training Stats after 20 global rounds:
+Training Loss : 1.5153098019957543
+ 
+Avg Testing Stats after 20 global rounds:
+Testing Accuracy: 31.560000000000006%
+Testing Loss: 2.1468205228447914
+
+ | Global Training Round : 21 |
+
+Global estimated params:
+
+ | Global Training Round : 22 |
+
+Global estimated params:
+ 
+Avg Training Stats after 22 global rounds:
+Training Loss : 1.5561827273170152
+ 
+Avg Testing Stats after 22 global rounds:
+Testing Accuracy: 47.49%
+Testing Loss: 2.0459088414907454
+
+ | Global Training Round : 23 |
+
+Global estimated params:
+
+ | Global Training Round : 24 |
+
+Global estimated params:
+ 
+Avg Training Stats after 24 global rounds:
+Training Loss : 1.5051113259792328
+ 
+Avg Testing Stats after 24 global rounds:
+Testing Accuracy: 30.72%
+Testing Loss: 2.1531578987836837
+
+ | Global Training Round : 25 |
+
+Global estimated params:
+
+ | Global Training Round : 26 |
+
+Global estimated params:
+ 
+Avg Training Stats after 26 global rounds:
+Training Loss : 1.5130601374308268
+ 
+Avg Testing Stats after 26 global rounds:
+Testing Accuracy: 33.2%
+Testing Loss: 2.1253710225224496
+
+ | Global Training Round : 27 |
+
+Global estimated params:
+
+ | Global Training Round : 28 |
+
+Global estimated params:
+ 
+Avg Training Stats after 28 global rounds:
+Training Loss : 1.5514033733805022
+ 
+Avg Testing Stats after 28 global rounds:
+Testing Accuracy: 50.160000000000004%
+Testing Loss: 2.018459361791611
+
+ | Global Training Round : 29 |
+
+Global estimated params:
+
+ | Global Training Round : 30 |
+
+Global estimated params:
+ 
+Avg Training Stats after 30 global rounds:
+Training Loss : 1.5037274603048962
+ 
+Avg Testing Stats after 30 global rounds:
+Testing Accuracy: 32.269999999999996%
+Testing Loss: 2.136031274497509
+
+ | Global Training Round : 31 |
+
+Global estimated params:
+
+ | Global Training Round : 32 |
+
+Global estimated params:
+ 
+Avg Training Stats after 32 global rounds:
+Training Loss : 1.5114140644669534
+ 
+Avg Testing Stats after 32 global rounds:
+Testing Accuracy: 34.83%
+Testing Loss: 2.1060642436146737
+
+ | Global Training Round : 33 |
+
+Global estimated params:
+
+ | Global Training Round : 34 |
+
+Global estimated params:
+ 
+Avg Training Stats after 34 global rounds:
+Training Loss : 1.5482739382982253
+ 
+Avg Testing Stats after 34 global rounds:
+Testing Accuracy: 52.54%
+Testing Loss: 1.995839212834835
+
+ | Global Training Round : 35 |
+
+Global estimated params:
+
+ | Global Training Round : 36 |
+
+Global estimated params:
+ 
+Avg Training Stats after 36 global rounds:
+Training Loss : 1.502569827238719
+ 
+Avg Testing Stats after 36 global rounds:
+Testing Accuracy: 33.42%
+Testing Loss: 2.1207299306988716
+
+ | Global Training Round : 37 |
+
+Global estimated params:
+
+ | Global Training Round : 38 |
+
+Global estimated params:
+ 
+Avg Training Stats after 38 global rounds:
+Training Loss : 1.50999338944753
+ 
+Avg Testing Stats after 38 global rounds:
+Testing Accuracy: 36.43%
+Testing Loss: 2.0888498783111573
+
+ | Global Training Round : 39 |
+
+Global estimated params:
+
+ | Global Training Round : 40 |
+
+Global estimated params:
+ 
+Avg Training Stats after 40 global rounds:
+Training Loss : 1.5458191858728725
+ 
+Avg Testing Stats after 40 global rounds:
+Testing Accuracy: 54.50000000000001%
+Testing Loss: 1.9768007189035415
+
+ | Global Training Round : 41 |
+
+Global estimated params:
+
+ | Global Training Round : 42 |
+
+Global estimated params:
+ 
+Avg Training Stats after 42 global rounds:
+Training Loss : 1.5015191285808882
+ 
+Avg Testing Stats after 42 global rounds:
+Testing Accuracy: 34.519999999999996%
+Testing Loss: 2.106944765150547
+
+ | Global Training Round : 43 |
+
+Global estimated params:
+
+ | Global Training Round : 44 |
+
+Global estimated params:
+ 
+Avg Training Stats after 44 global rounds:
+Training Loss : 1.50881876240174
+ 
+Avg Testing Stats after 44 global rounds:
+Testing Accuracy: 37.8%
+Testing Loss: 2.0733640626072884
+
+ | Global Training Round : 45 |
+
+Global estimated params:
+
+ | Global Training Round : 46 |
+
+Global estimated params:
+ 
+Avg Training Stats after 46 global rounds:
+Training Loss : 1.5436434930562972
+ 
+Avg Testing Stats after 46 global rounds:
+Testing Accuracy: 55.86%
+Testing Loss: 1.9606208458542824
+
+ | Global Training Round : 47 |
+
+Global estimated params:
+
+ | Global Training Round : 48 |
+
+Global estimated params:
+ 
+Avg Training Stats after 48 global rounds:
+Training Loss : 1.500691938002904
+ 
+Avg Testing Stats after 48 global rounds:
+Testing Accuracy: 35.52%
+Testing Loss: 2.0944455742835997
+
+ | Global Training Round : 49 |
+
+Global estimated params:
+
+ | Global Training Round : 50 |
+
+Global estimated params:
+ 
+Avg Training Stats after 50 global rounds:
+Training Loss : 1.5079074645042418
+ 
+Avg Testing Stats after 50 global rounds:
+Testing Accuracy: 39.599999999999994%
+Testing Loss: 2.059083007276058
+
+ | Global Training Round : 51 |
+
+Global estimated params:
+
+ | Global Training Round : 52 |
+
+Global estimated params:
+ 
+Avg Training Stats after 52 global rounds:
+Training Loss : 1.5535579927762349
+ 
+Avg Testing Stats after 52 global rounds:
+Testing Accuracy: 57.43000000000001%
+Testing Loss: 1.945927509665489
+
+ | Global Training Round : 53 |
+
+Global estimated params:
+
+ | Global Training Round : 54 |
+
+Global estimated params:
+ 
+Avg Training Stats after 54 global rounds:
+Training Loss : 1.5059525437156358
+ 
+Avg Testing Stats after 54 global rounds:
+Testing Accuracy: 38.65%
+Testing Loss: 2.0667974635958672
+ 28%|██▊       | 55/200 [15:57<42:08, 17.44s/it] 28%|██▊       | 56/200 [16:14<41:49, 17.43s/it] 28%|██▊       | 57/200 [16:32<41:29, 17.41s/it] 29%|██▉       | 58/200 [16:49<41:14, 17.42s/it] 30%|██▉       | 59/200 [17:07<41:05, 17.48s/it] 30%|███       | 60/200 [17:25<41:05, 17.61s/it] 30%|███       | 61/200 [17:42<40:50, 17.63s/it] 31%|███       | 62/200 [18:00<40:21, 17.55s/it] 32%|███▏      | 63/200 [18:17<39:54, 17.48s/it] 32%|███▏      | 64/200 [18:34<39:36, 17.48s/it] 32%|███▎      | 65/200 [18:52<39:27, 17.53s/it] 33%|███▎      | 66/200 [19:09<39:03, 17.49s/it] 34%|███▎      | 67/200 [19:27<38:45, 17.48s/it] 34%|███▍      | 68/200 [19:44<38:23, 17.45s/it] 34%|███▍      | 69/200 [20:02<38:07, 17.46s/it] 35%|███▌      | 70/200 [20:19<37:43, 17.41s/it] 36%|███▌      | 71/200 [20:37<37:27, 17.42s/it] 36%|███▌      | 72/200 [20:54<37:07, 17.41s/it] 36%|███▋      | 73/200 [21:11<36:37, 17.30s/it] 37%|███▋      | 74/200 [21:29<36:32, 17.40s/it] 38%|███▊      | 75/200 [21:46<36:14, 17.40s/it] 38%|███▊      | 76/200 [22:03<35:54, 17.37s/it] 38%|███▊      | 77/200 [22:21<35:31, 17.33s/it] 39%|███▉      | 78/200 [22:38<35:14, 17.33s/it] 40%|███▉      | 79/200 [22:55<34:50, 17.27s/it] 40%|████      | 80/200 [23:13<34:44, 17.37s/it] 40%|████      | 81/200 [23:30<34:38, 17.47s/it] 41%|████      | 82/200 [23:48<34:20, 17.47s/it] 42%|████▏     | 83/200 [24:05<34:07, 17.50s/it] 42%|████▏     | 84/200 [24:23<33:53, 17.53s/it] 42%|████▎     | 85/200 [24:41<33:45, 17.61s/it] 43%|████▎     | 86/200 [24:59<33:37, 17.69s/it] 44%|████▎     | 87/200 [25:16<33:11, 17.63s/it] 44%|████▍     | 88/200 [25:34<32:54, 17.63s/it] 44%|████▍     | 89/200 [25:51<32:32, 17.59s/it] 45%|████▌     | 90/200 [26:09<32:09, 17.54s/it] 46%|████▌     | 91/200 [26:26<31:40, 17.43s/it] 46%|████▌     | 92/200 [26:43<31:25, 17.46s/it] 46%|████▋     | 93/200 [27:01<31:16, 17.53s/it] 47%|████▋     | 94/200 [27:18<30:52, 17.48s/it] 48%|████▊     | 95/200 [27:36<30:31, 17.44s/it] 48%|████▊     | 96/200 [27:53<30:15, 17.45s/it] 48%|████▊     | 97/200 [28:11<29:58, 17.46s/it] 49%|████▉     | 98/200 [28:28<29:38, 17.44s/it] 50%|████▉     | 99/200 [28:45<29:18, 17.41s/it] 50%|█████     | 100/200 [29:03<28:56, 17.37s/it] 50%|█████     | 101/200 [29:20<28:45, 17.43s/it] 51%|█████     | 102/200 [29:38<28:31, 17.46s/it] 52%|█████▏    | 103/200 [29:55<28:11, 17.44s/it] 52%|█████▏    | 104/200 [30:13<27:51, 17.42s/it] 52%|█████▎    | 105/200 [30:30<27:33, 17.40s/it] 53%|█████▎    | 106/200 [30:47<27:18, 17.43s/it] 54%|█████▎    | 107/200 [31:05<27:04, 17.46s/it]
+ | Global Training Round : 55 |
+
+Global estimated params:
+
+ | Global Training Round : 56 |
+
+Global estimated params:
+ 
+Avg Training Stats after 56 global rounds:
+Training Loss : 1.5149488097429276
+ 
+Avg Testing Stats after 56 global rounds:
+Testing Accuracy: 43.519999999999996%
+Testing Loss: 2.0285291850566862
+
+ | Global Training Round : 57 |
+
+Global estimated params:
+
+ | Global Training Round : 58 |
+
+Global estimated params:
+ 
+Avg Training Stats after 58 global rounds:
+Training Loss : 1.5537261470158894
+ 
+Avg Testing Stats after 58 global rounds:
+Testing Accuracy: 58.93000000000001%
+Testing Loss: 1.930898369848728
+
+ | Global Training Round : 59 |
+
+Global estimated params:
+
+ | Global Training Round : 60 |
+
+Global estimated params:
+ 
+Avg Training Stats after 60 global rounds:
+Training Loss : 1.505736769934495
+ 
+Avg Testing Stats after 60 global rounds:
+Testing Accuracy: 40.209999999999994%
+Testing Loss: 2.054869104921818
+
+ | Global Training Round : 61 |
+
+Global estimated params:
+
+ | Global Training Round : 62 |
+
+Global estimated params:
+ 
+Avg Training Stats after 62 global rounds:
+Training Loss : 1.5145770764350892
+ 
+Avg Testing Stats after 62 global rounds:
+Testing Accuracy: 44.91%
+Testing Loss: 2.016714107990265
+
+ | Global Training Round : 63 |
+
+Global estimated params:
+
+ | Global Training Round : 64 |
+
+Global estimated params:
+ 
+Avg Training Stats after 64 global rounds:
+Training Loss : 1.552866480747859
+ 
+Avg Testing Stats after 64 global rounds:
+Testing Accuracy: 59.650000000000006%
+Testing Loss: 1.920823010802269
+
+ | Global Training Round : 65 |
+
+Global estimated params:
+
+ | Global Training Round : 66 |
+
+Global estimated params:
+ 
+Avg Training Stats after 66 global rounds:
+Training Loss : 1.5052752392490703
+ 
+Avg Testing Stats after 66 global rounds:
+Testing Accuracy: 41.24%
+Testing Loss: 2.0451838195323946
+
+ | Global Training Round : 67 |
+
+Global estimated params:
+
+ | Global Training Round : 68 |
+
+Global estimated params:
+ 
+Avg Training Stats after 68 global rounds:
+Training Loss : 1.513995526631673
+ 
+Avg Testing Stats after 68 global rounds:
+Testing Accuracy: 46.13%
+Testing Loss: 2.007364259660244
+
+ | Global Training Round : 69 |
+
+Global estimated params:
+
+ | Global Training Round : 70 |
+
+Global estimated params:
+ 
+Avg Training Stats after 70 global rounds:
+Training Loss : 1.5517857934037846
+ 
+Avg Testing Stats after 70 global rounds:
+Testing Accuracy: 60.239999999999995%
+Testing Loss: 1.9123002365231514
+
+ | Global Training Round : 71 |
+
+Global estimated params:
+
+ | Global Training Round : 72 |
+
+Global estimated params:
+ 
+Avg Training Stats after 72 global rounds:
+Training Loss : 1.5048194496830303
+ 
+Avg Testing Stats after 72 global rounds:
+Testing Accuracy: 42.16%
+Testing Loss: 2.0363850057125092
+
+ | Global Training Round : 73 |
+
+Global estimated params:
+
+ | Global Training Round : 74 |
+
+Global estimated params:
+ 
+Avg Training Stats after 74 global rounds:
+Training Loss : 1.5134408754110336
+ 
+Avg Testing Stats after 74 global rounds:
+Testing Accuracy: 47.26%
+Testing Loss: 1.9984142482280731
+
+ | Global Training Round : 75 |
+
+Global estimated params:
+
+ | Global Training Round : 76 |
+
+Global estimated params:
+ 
+Avg Training Stats after 76 global rounds:
+Training Loss : 1.5506907791892686
+ 
+Avg Testing Stats after 76 global rounds:
+Testing Accuracy: 60.88%
+Testing Loss: 1.9049256190657615
+
+ | Global Training Round : 77 |
+
+Global estimated params:
+
+ | Global Training Round : 78 |
+
+Global estimated params:
+ 
+Avg Training Stats after 78 global rounds:
+Training Loss : 1.5043782753745714
+ 
+Avg Testing Stats after 78 global rounds:
+Testing Accuracy: 43.09%
+Testing Loss: 2.028107522428036
+
+ | Global Training Round : 79 |
+
+Global estimated params:
+
+ | Global Training Round : 80 |
+
+Global estimated params:
+ 
+Avg Training Stats after 80 global rounds:
+Training Loss : 1.5129504533608755
+ 
+Avg Testing Stats after 80 global rounds:
+Testing Accuracy: 48.08%
+Testing Loss: 1.9904785186052323
+
+ | Global Training Round : 81 |
+
+Global estimated params:
+
+ | Global Training Round : 82 |
+
+Global estimated params:
+ 
+Avg Training Stats after 82 global rounds:
+Training Loss : 1.5496541430552802
+ 
+Avg Testing Stats after 82 global rounds:
+Testing Accuracy: 61.41000000000001%
+Testing Loss: 1.8981213033199311
+
+ | Global Training Round : 83 |
+
+Global estimated params:
+
+ | Global Training Round : 84 |
+
+Global estimated params:
+ 
+Avg Training Stats after 84 global rounds:
+Training Loss : 1.5039481689532597
+ 
+Avg Testing Stats after 84 global rounds:
+Testing Accuracy: 43.92%
+Testing Loss: 2.0204954162240027
+
+ | Global Training Round : 85 |
+
+Global estimated params:
+
+ | Global Training Round : 86 |
+
+Global estimated params:
+ 
+Avg Training Stats after 86 global rounds:
+Training Loss : 1.5125339192152023
+ 
+Avg Testing Stats after 86 global rounds:
+Testing Accuracy: 48.89%
+Testing Loss: 1.982702174782753
+
+ | Global Training Round : 87 |
+
+Global estimated params:
+
+ | Global Training Round : 88 |
+
+Global estimated params:
+ 
+Avg Training Stats after 88 global rounds:
+Training Loss : 1.5488281258940697
+ 
+Avg Testing Stats after 88 global rounds:
+Testing Accuracy: 61.96%
+Testing Loss: 1.8922172114253044
+
+ | Global Training Round : 89 |
+
+Global estimated params:
+
+ | Global Training Round : 90 |
+
+Global estimated params:
+ 
+Avg Training Stats after 90 global rounds:
+Training Loss : 1.5035830409328141
+ 
+Avg Testing Stats after 90 global rounds:
+Testing Accuracy: 44.62%
+Testing Loss: 2.0138450607657434
+
+ | Global Training Round : 91 |
+
+Global estimated params:
+
+ | Global Training Round : 92 |
+
+Global estimated params:
+ 
+Avg Training Stats after 92 global rounds:
+Training Loss : 1.5120990334947901
+ 
+Avg Testing Stats after 92 global rounds:
+Testing Accuracy: 49.72%
+Testing Loss: 1.9762853637337685
+
+ | Global Training Round : 93 |
+
+Global estimated params:
+
+ | Global Training Round : 94 |
+
+Global estimated params:
+ 
+Avg Training Stats after 94 global rounds:
+Training Loss : 1.548097271521886
+ 
+Avg Testing Stats after 94 global rounds:
+Testing Accuracy: 62.41%
+Testing Loss: 1.8867111325263977
+
+ | Global Training Round : 95 |
+
+Global estimated params:
+
+ | Global Training Round : 96 |
+
+Global estimated params:
+ 
+Avg Training Stats after 96 global rounds:
+Training Loss : 1.5033009339372319
+ 
+Avg Testing Stats after 96 global rounds:
+Testing Accuracy: 45.57%
+Testing Loss: 2.0071382582187653
+
+ | Global Training Round : 97 |
+
+Global estimated params:
+
+ | Global Training Round : 98 |
+
+Global estimated params:
+ 
+Avg Training Stats after 98 global rounds:
+Training Loss : 1.5116776438554127
+ 
+Avg Testing Stats after 98 global rounds:
+Testing Accuracy: 50.49%
+Testing Loss: 1.9699249386787414
+
+ | Global Training Round : 99 |
+
+Global estimated params:
+
+ | Global Training Round : 100 |
+
+Global estimated params:
+ 
+Avg Training Stats after 100 global rounds:
+Training Loss : 1.5473262935876846
+ 
+Avg Testing Stats after 100 global rounds:
+Testing Accuracy: 62.780000000000015%
+Testing Loss: 1.8815795615315438
+
+ | Global Training Round : 101 |
+
+Global estimated params:
+
+ | Global Training Round : 102 |
+
+Global estimated params:
+ 
+Avg Training Stats after 102 global rounds:
+Training Loss : 1.505059493879477
+ 
+Avg Testing Stats after 102 global rounds:
+Testing Accuracy: 46.91%
+Testing Loss: 1.9966299876570701
+
+ | Global Training Round : 103 |
+
+Global estimated params:
+
+ | Global Training Round : 104 |
+
+Global estimated params:
+ 
+Avg Training Stats after 104 global rounds:
+Training Loss : 1.5159175993998844
+ 
+Avg Testing Stats after 104 global rounds:
+Testing Accuracy: 52.660000000000004%
+Testing Loss: 1.9532561108469964
+
+ | Global Training Round : 105 |
+
+Global estimated params:
+
+ | Global Training Round : 106 |
+
+Global estimated params:
+ 
+Avg Training Stats after 106 global rounds:
+Training Loss : 1.5537049961090088
+ 
+Avg Testing Stats after 106 global rounds:
+Testing Accuracy: 63.73000000000001%
+Testing Loss: 1.8738708049058914
+
+ | Global Training Round : 107 |
+
+Global estimated params:
+
+ | Global Training Round : 108 |
+
+Global estimated params:
+ 
+Avg Training Stats after 108 global rounds:
+Training Loss : 1.506438305278619
+ 
+Avg Testing Stats after 108 global rounds:
+Testing Accuracy: 48.48%
+ 54%|█████▍    | 108/200 [31:22<26:40, 17.40s/it] 55%|█████▍    | 109/200 [31:39<26:18, 17.35s/it] 55%|█████▌    | 110/200 [31:57<26:01, 17.35s/it] 56%|█████▌    | 111/200 [32:14<25:46, 17.37s/it] 56%|█████▌    | 112/200 [32:32<25:32, 17.41s/it] 56%|█████▋    | 113/200 [32:49<25:18, 17.45s/it] 57%|█████▋    | 114/200 [33:07<24:57, 17.41s/it] 57%|█████▊    | 115/200 [33:24<24:40, 17.42s/it] 58%|█████▊    | 116/200 [33:41<24:20, 17.39s/it] 58%|█████▊    | 117/200 [33:59<24:06, 17.42s/it] 59%|█████▉    | 118/200 [34:17<23:58, 17.55s/it] 60%|█████▉    | 119/200 [34:34<23:41, 17.54s/it] 60%|██████    | 120/200 [34:51<23:15, 17.45s/it] 60%|██████    | 121/200 [35:09<23:05, 17.53s/it] 61%|██████    | 122/200 [35:27<22:46, 17.52s/it] 62%|██████▏   | 123/200 [35:44<22:24, 17.46s/it] 62%|██████▏   | 124/200 [36:01<22:06, 17.45s/it] 62%|██████▎   | 125/200 [36:19<21:51, 17.48s/it] 63%|██████▎   | 126/200 [36:37<21:35, 17.50s/it] 64%|██████▎   | 127/200 [36:54<21:15, 17.47s/it] 64%|██████▍   | 128/200 [37:11<20:59, 17.49s/it] 64%|██████▍   | 129/200 [37:29<20:41, 17.49s/it] 65%|██████▌   | 130/200 [37:47<20:25, 17.51s/it] 66%|██████▌   | 131/200 [38:04<20:04, 17.45s/it] 66%|██████▌   | 132/200 [38:21<19:49, 17.49s/it] 66%|██████▋   | 133/200 [38:39<19:32, 17.50s/it] 67%|██████▋   | 134/200 [38:56<19:13, 17.47s/it] 68%|██████▊   | 135/200 [39:14<18:52, 17.42s/it] 68%|██████▊   | 136/200 [39:31<18:37, 17.46s/it] 68%|██████▊   | 137/200 [39:49<18:18, 17.44s/it] 69%|██████▉   | 138/200 [40:06<17:58, 17.40s/it] 70%|██████▉   | 139/200 [40:23<17:38, 17.36s/it] 70%|███████   | 140/200 [40:41<17:22, 17.37s/it] 70%|███████   | 141/200 [40:58<17:05, 17.39s/it] 71%|███████   | 142/200 [41:15<16:48, 17.39s/it] 72%|███████▏  | 143/200 [41:33<16:34, 17.44s/it] 72%|███████▏  | 144/200 [41:50<16:15, 17.41s/it] 72%|███████▎  | 145/200 [42:07<15:54, 17.36s/it] 73%|███████▎  | 146/200 [42:25<15:41, 17.44s/it] 74%|███████▎  | 147/200 [42:43<15:26, 17.48s/it] 74%|███████▍  | 148/200 [43:00<15:11, 17.53s/it] 74%|███████▍  | 149/200 [43:18<14:53, 17.52s/it] 75%|███████▌  | 150/200 [43:35<14:33, 17.48s/it] 76%|███████▌  | 151/200 [43:53<14:17, 17.51s/it] 76%|███████▌  | 152/200 [44:10<13:54, 17.38s/it] 76%|███████▋  | 153/200 [44:27<13:38, 17.42s/it] 77%|███████▋  | 154/200 [44:45<13:25, 17.52s/it] 78%|███████▊  | 155/200 [45:02<13:05, 17.47s/it] 78%|███████▊  | 156/200 [45:20<12:52, 17.55s/it] 78%|███████▊  | 157/200 [45:38<12:36, 17.60s/it] 79%|███████▉  | 158/200 [45:55<12:17, 17.56s/it] 80%|███████▉  | 159/200 [46:13<11:58, 17.51s/it] 80%|████████  | 160/200 [46:30<11:39, 17.49s/it] 80%|████████  | 161/200 [46:48<11:19, 17.43s/it]Testing Loss: 1.9836968347430228
+
+ | Global Training Round : 109 |
+
+Global estimated params:
+
+ | Global Training Round : 110 |
+
+Global estimated params:
+ 
+Avg Training Stats after 110 global rounds:
+Training Loss : 1.5159335500995317
+ 
+Avg Testing Stats after 110 global rounds:
+Testing Accuracy: 53.33%
+Testing Loss: 1.9467789456248283
+
+ | Global Training Round : 111 |
+
+Global estimated params:
+
+ | Global Training Round : 112 |
+
+Global estimated params:
+ 
+Avg Training Stats after 112 global rounds:
+Training Loss : 1.5536529100934666
+ 
+Avg Testing Stats after 112 global rounds:
+Testing Accuracy: 64.31%
+Testing Loss: 1.868968965113163
+
+ | Global Training Round : 113 |
+
+Global estimated params:
+
+ | Global Training Round : 114 |
+
+Global estimated params:
+ 
+Avg Training Stats after 114 global rounds:
+Training Loss : 1.5062084440390269
+ 
+Avg Testing Stats after 114 global rounds:
+Testing Accuracy: 49.1%
+Testing Loss: 1.9783548578619956
+
+ | Global Training Round : 115 |
+
+Global estimated params:
+
+ | Global Training Round : 116 |
+
+Global estimated params:
+ 
+Avg Training Stats after 116 global rounds:
+Training Loss : 1.5157073541482289
+ 
+Avg Testing Stats after 116 global rounds:
+Testing Accuracy: 53.949999999999996%
+Testing Loss: 1.941679012775421
+
+ | Global Training Round : 117 |
+
+Global estimated params:
+
+ | Global Training Round : 118 |
+
+Global estimated params:
+ 
+Avg Training Stats after 118 global rounds:
+Training Loss : 1.553387405872345
+ 
+Avg Testing Stats after 118 global rounds:
+Testing Accuracy: 64.67999999999999%
+Testing Loss: 1.8650029867887497
+
+ | Global Training Round : 119 |
+
+Global estimated params:
+
+ | Global Training Round : 120 |
+
+Global estimated params:
+ 
+Avg Training Stats after 120 global rounds:
+Training Loss : 1.506076083779335
+ 
+Avg Testing Stats after 120 global rounds:
+Testing Accuracy: 49.660000000000004%
+Testing Loss: 1.9732428967952729
+
+ | Global Training Round : 121 |
+
+Global estimated params:
+
+ | Global Training Round : 122 |
+
+Global estimated params:
+ 
+Avg Training Stats after 122 global rounds:
+Training Loss : 1.5153978125254315
+ 
+Avg Testing Stats after 122 global rounds:
+Testing Accuracy: 54.449999999999996%
+Testing Loss: 1.937366284430027
+
+ | Global Training Round : 123 |
+
+Global estimated params:
+
+ | Global Training Round : 124 |
+
+Global estimated params:
+ 
+Avg Training Stats after 124 global rounds:
+Training Loss : 1.5526406751076383
+ 
+Avg Testing Stats after 124 global rounds:
+Testing Accuracy: 65.01%
+Testing Loss: 1.8614302769303321
+
+ | Global Training Round : 125 |
+
+Global estimated params:
+
+ | Global Training Round : 126 |
+
+Global estimated params:
+ 
+Avg Training Stats after 126 global rounds:
+Training Loss : 1.5058478762706118
+ 
+Avg Testing Stats after 126 global rounds:
+Testing Accuracy: 50.06%
+Testing Loss: 1.9688326567411423
+
+ | Global Training Round : 127 |
+
+Global estimated params:
+
+ | Global Training Round : 128 |
+
+Global estimated params:
+ 
+Avg Training Stats after 128 global rounds:
+Training Loss : 1.5151696903506917
+ 
+Avg Testing Stats after 128 global rounds:
+Testing Accuracy: 54.88000000000001%
+Testing Loss: 1.9331452935934066
+
+ | Global Training Round : 129 |
+
+Global estimated params:
+
+ | Global Training Round : 130 |
+
+Global estimated params:
+ 
+Avg Training Stats after 130 global rounds:
+Training Loss : 1.5523036682605744
+ 
+Avg Testing Stats after 130 global rounds:
+Testing Accuracy: 65.27%
+Testing Loss: 1.8580042019486427
+
+ | Global Training Round : 131 |
+
+Global estimated params:
+
+ | Global Training Round : 132 |
+
+Global estimated params:
+ 
+Avg Training Stats after 132 global rounds:
+Training Loss : 1.505599286357562
+ 
+Avg Testing Stats after 132 global rounds:
+Testing Accuracy: 50.56%
+Testing Loss: 1.9647055968642235
+
+ | Global Training Round : 133 |
+
+Global estimated params:
+
+ | Global Training Round : 134 |
+
+Global estimated params:
+ 
+Avg Training Stats after 134 global rounds:
+Training Loss : 1.5149352274338406
+ 
+Avg Testing Stats after 134 global rounds:
+Testing Accuracy: 55.25%
+Testing Loss: 1.9292316660284996
+
+ | Global Training Round : 135 |
+
+Global estimated params:
+
+ | Global Training Round : 136 |
+
+Global estimated params:
+ 
+Avg Training Stats after 136 global rounds:
+Training Loss : 1.5519044824441273
+ 
+Avg Testing Stats after 136 global rounds:
+Testing Accuracy: 65.53%
+Testing Loss: 1.8549311250448226
+
+ | Global Training Round : 137 |
+
+Global estimated params:
+
+ | Global Training Round : 138 |
+
+Global estimated params:
+ 
+Avg Training Stats after 138 global rounds:
+Training Loss : 1.5053823510805768
+ 
+Avg Testing Stats after 138 global rounds:
+Testing Accuracy: 51.01%
+Testing Loss: 1.960822758078575
+
+ | Global Training Round : 139 |
+
+Global estimated params:
+
+ | Global Training Round : 140 |
+
+Global estimated params:
+ 
+Avg Training Stats after 140 global rounds:
+Training Loss : 1.5146244156360626
+ 
+Avg Testing Stats after 140 global rounds:
+Testing Accuracy: 55.57%
+Testing Loss: 1.9258150264620781
+
+ | Global Training Round : 141 |
+
+Global estimated params:
+
+ | Global Training Round : 142 |
+
+Global estimated params:
+ 
+Avg Training Stats after 142 global rounds:
+Training Loss : 1.5511786542336146
+ 
+Avg Testing Stats after 142 global rounds:
+Testing Accuracy: 65.81%
+Testing Loss: 1.8520429596304893
+
+ | Global Training Round : 143 |
+
+Global estimated params:
+
+ | Global Training Round : 144 |
+
+Global estimated params:
+ 
+Avg Training Stats after 144 global rounds:
+Training Loss : 1.5051810032129287
+ 
+Avg Testing Stats after 144 global rounds:
+Testing Accuracy: 51.339999999999996%
+Testing Loss: 1.9570188879966737
+
+ | Global Training Round : 145 |
+
+Global estimated params:
+
+ | Global Training Round : 146 |
+
+Global estimated params:
+ 
+Avg Training Stats after 146 global rounds:
+Training Loss : 1.514538511733214
+ 
+Avg Testing Stats after 146 global rounds:
+Testing Accuracy: 55.86%
+Testing Loss: 1.9220414012670517
+
+ | Global Training Round : 147 |
+
+Global estimated params:
+
+ | Global Training Round : 148 |
+
+Global estimated params:
+ 
+Avg Training Stats after 148 global rounds:
+Training Loss : 1.550830163359642
+ 
+Avg Testing Stats after 148 global rounds:
+Testing Accuracy: 66.03%
+Testing Loss: 1.8493500858545304
+
+ | Global Training Round : 149 |
+
+Global estimated params:
+
+ | Global Training Round : 150 |
+
+Global estimated params:
+ 
+Avg Training Stats after 150 global rounds:
+Training Loss : 1.5049774162967997
+ 
+Avg Testing Stats after 150 global rounds:
+Testing Accuracy: 51.86999999999999%
+Testing Loss: 1.953519234061241
+
+ | Global Training Round : 151 |
+
+Global estimated params:
+
+ | Global Training Round : 152 |
+
+Global estimated params:
+ 
+Avg Training Stats after 152 global rounds:
+Training Loss : 1.517546433707078
+ 
+Avg Testing Stats after 152 global rounds:
+Testing Accuracy: 57.10999999999999%
+Testing Loss: 1.9126616090536117
+
+ | Global Training Round : 153 |
+
+Global estimated params:
+
+ | Global Training Round : 154 |
+
+Global estimated params:
+ 
+Avg Training Stats after 154 global rounds:
+Training Loss : 1.5548283556103706
+ 
+Avg Testing Stats after 154 global rounds:
+Testing Accuracy: 66.65%
+Testing Loss: 1.8449745163321496
+
+ | Global Training Round : 155 |
+
+Global estimated params:
+
+ | Global Training Round : 156 |
+
+Global estimated params:
+ 
+Avg Training Stats after 156 global rounds:
+Training Loss : 1.507590463856856
+ 
+Avg Testing Stats after 156 global rounds:
+Testing Accuracy: 53.38%
+Testing Loss: 1.9413706049323083
+
+ | Global Training Round : 157 |
+
+Global estimated params:
+
+ | Global Training Round : 158 |
+
+Global estimated params:
+ 
+Avg Training Stats after 158 global rounds:
+Training Loss : 1.5176740831136704
+ 
+Avg Testing Stats after 158 global rounds:
+Testing Accuracy: 57.78%
+Testing Loss: 1.907691663503647
+
+ | Global Training Round : 159 |
+
+Global estimated params:
+
+ | Global Training Round : 160 |
+
+Global estimated params:
+ 
+Avg Training Stats after 160 global rounds:
+Training Loss : 1.55496386885643
+ 
+Avg Testing Stats after 160 global rounds:
+Testing Accuracy: 67.07%
+Testing Loss: 1.8413338974118232
+
+ | Global Training Round : 161 |
+
+Global estimated params:
+
+ | Global Training Round : 162 |
+
+Global estimated params:
+ 
+Avg Training Stats after 162 global rounds:
+ 81%|████████  | 162/200 [47:05<11:07, 17.56s/it] 82%|████████▏ | 163/200 [47:23<10:48, 17.54s/it] 82%|████████▏ | 164/200 [47:40<10:29, 17.48s/it] 82%|████████▎ | 165/200 [47:58<10:10, 17.45s/it] 83%|████████▎ | 166/200 [48:15<09:52, 17.41s/it] 84%|████████▎ | 167/200 [48:32<09:33, 17.39s/it] 84%|████████▍ | 168/200 [48:50<09:19, 17.49s/it] 84%|████████▍ | 169/200 [49:08<09:05, 17.58s/it] 85%|████████▌ | 170/200 [49:25<08:45, 17.52s/it] 86%|████████▌ | 171/200 [49:43<08:28, 17.55s/it] 86%|████████▌ | 172/200 [50:00<08:09, 17.50s/it] 86%|████████▋ | 173/200 [50:18<07:52, 17.51s/it] 87%|████████▋ | 174/200 [50:35<07:34, 17.50s/it] 88%|████████▊ | 175/200 [50:52<07:15, 17.42s/it] 88%|████████▊ | 176/200 [51:10<06:57, 17.39s/it] 88%|████████▊ | 177/200 [51:27<06:41, 17.44s/it] 89%|████████▉ | 178/200 [51:45<06:26, 17.56s/it] 90%|████████▉ | 179/200 [52:02<06:06, 17.46s/it] 90%|█████████ | 180/200 [52:19<05:47, 17.35s/it] 90%|█████████ | 181/200 [52:37<05:29, 17.32s/it] 91%|█████████ | 182/200 [52:54<05:13, 17.39s/it] 92%|█████████▏| 183/200 [53:12<04:56, 17.47s/it] 92%|█████████▏| 184/200 [53:29<04:38, 17.43s/it] 92%|█████████▎| 185/200 [53:47<04:20, 17.40s/it] 93%|█████████▎| 186/200 [54:04<04:03, 17.43s/it] 94%|█████████▎| 187/200 [54:22<03:46, 17.43s/it] 94%|█████████▍| 188/200 [54:39<03:28, 17.41s/it] 94%|█████████▍| 189/200 [54:56<03:11, 17.43s/it] 95%|█████████▌| 190/200 [55:14<02:54, 17.44s/it] 96%|█████████▌| 191/200 [55:31<02:37, 17.49s/it] 96%|█████████▌| 192/200 [55:49<02:20, 17.62s/it] 96%|█████████▋| 193/200 [56:07<02:03, 17.65s/it] 97%|█████████▋| 194/200 [56:26<01:47, 17.94s/it] 98%|█████████▊| 195/200 [56:44<01:30, 18.02s/it] 98%|█████████▊| 196/200 [57:01<01:11, 17.87s/it] 98%|█████████▊| 197/200 [57:19<00:53, 17.71s/it] 99%|█████████▉| 198/200 [57:36<00:35, 17.58s/it]100%|█████████▉| 199/200 [57:53<00:17, 17.33s/it]100%|██████████| 200/200 [58:09<00:00, 17.08s/it]100%|██████████| 200/200 [58:09<00:00, 17.45s/it]
+Training Loss : 1.5074955940246582
+ 
+Avg Testing Stats after 162 global rounds:
+Testing Accuracy: 53.79999999999999%
+Testing Loss: 1.9376020461320878
+
+ | Global Training Round : 163 |
+
+Global estimated params:
+
+ | Global Training Round : 164 |
+
+Global estimated params:
+ 
+Avg Training Stats after 164 global rounds:
+Training Loss : 1.517543784379959
+ 
+Avg Testing Stats after 164 global rounds:
+Testing Accuracy: 58.129999999999995%
+Testing Loss: 1.904192015528679
+
+ | Global Training Round : 165 |
+
+Global estimated params:
+
+ | Global Training Round : 166 |
+
+Global estimated params:
+ 
+Avg Training Stats after 166 global rounds:
+Training Loss : 1.5549925627311072
+ 
+Avg Testing Stats after 166 global rounds:
+Testing Accuracy: 67.34%
+Testing Loss: 1.8388148814439773
+
+ | Global Training Round : 167 |
+
+Global estimated params:
+
+ | Global Training Round : 168 |
+
+Global estimated params:
+ 
+Avg Training Stats after 168 global rounds:
+Training Loss : 1.5074254530668258
+ 
+Avg Testing Stats after 168 global rounds:
+Testing Accuracy: 54.2%
+Testing Loss: 1.9344625562429427
+
+ | Global Training Round : 169 |
+
+Global estimated params:
+
+ | Global Training Round : 170 |
+
+Global estimated params:
+ 
+Avg Training Stats after 170 global rounds:
+Training Loss : 1.5173540490865707
+ 
+Avg Testing Stats after 170 global rounds:
+Testing Accuracy: 58.35%
+Testing Loss: 1.9016947254538537
+
+ | Global Training Round : 171 |
+
+Global estimated params:
+
+ | Global Training Round : 172 |
+
+Global estimated params:
+ 
+Avg Training Stats after 172 global rounds:
+Training Loss : 1.5547764112552007
+ 
+Avg Testing Stats after 172 global rounds:
+Testing Accuracy: 67.49%
+Testing Loss: 1.8364937752485275
+
+ | Global Training Round : 173 |
+
+Global estimated params:
+
+ | Global Training Round : 174 |
+
+Global estimated params:
+ 
+Avg Training Stats after 174 global rounds:
+Training Loss : 1.507299743791421
+ 
+Avg Testing Stats after 174 global rounds:
+Testing Accuracy: 54.49%
+Testing Loss: 1.9312858581542969
+
+ | Global Training Round : 175 |
+
+Global estimated params:
+
+ | Global Training Round : 176 |
+
+Global estimated params:
+ 
+Avg Training Stats after 176 global rounds:
+Training Loss : 1.517203313509623
+ 
+Avg Testing Stats after 176 global rounds:
+Testing Accuracy: 58.739999999999995%
+Testing Loss: 1.898870886862278
+
+ | Global Training Round : 177 |
+
+Global estimated params:
+
+ | Global Training Round : 178 |
+
+Global estimated params:
+ 
+Avg Training Stats after 178 global rounds:
+Training Loss : 1.5542632312575977
+ 
+Avg Testing Stats after 178 global rounds:
+Testing Accuracy: 67.59%
+Testing Loss: 1.8344668060541154
+
+ | Global Training Round : 179 |
+
+Global estimated params:
+
+ | Global Training Round : 180 |
+
+Global estimated params:
+ 
+Avg Training Stats after 180 global rounds:
+Training Loss : 1.5071233926216758
+ 
+Avg Testing Stats after 180 global rounds:
+Testing Accuracy: 54.84%
+Testing Loss: 1.9287715762853623
+
+ | Global Training Round : 181 |
+
+Global estimated params:
+
+ | Global Training Round : 182 |
+
+Global estimated params:
+ 
+Avg Training Stats after 182 global rounds:
+Training Loss : 1.517111427982648
+ 
+Avg Testing Stats after 182 global rounds:
+Testing Accuracy: 58.98%
+Testing Loss: 1.8960989162325859
+
+ | Global Training Round : 183 |
+
+Global estimated params:
+
+ | Global Training Round : 184 |
+
+Global estimated params:
+ 
+Avg Training Stats after 184 global rounds:
+Training Loss : 1.55379384915034
+ 
+Avg Testing Stats after 184 global rounds:
+Testing Accuracy: 67.82%
+Testing Loss: 1.8324026852846145
+
+ | Global Training Round : 185 |
+
+Global estimated params:
+
+ | Global Training Round : 186 |
+
+Global estimated params:
+ 
+Avg Training Stats after 186 global rounds:
+Training Loss : 1.5069948570926985
+ 
+Avg Testing Stats after 186 global rounds:
+Testing Accuracy: 55.14999999999999%
+Testing Loss: 1.9261076271533966
+
+ | Global Training Round : 187 |
+
+Global estimated params:
+
+ | Global Training Round : 188 |
+
+Global estimated params:
+ 
+Avg Training Stats after 188 global rounds:
+Training Loss : 1.5168575965364772
+ 
+Avg Testing Stats after 188 global rounds:
+Testing Accuracy: 59.129999999999995%
+Testing Loss: 1.8940704047679902
+
+ | Global Training Round : 189 |
+
+Global estimated params:
+
+ | Global Training Round : 190 |
+
+Global estimated params:
+ 
+Avg Training Stats after 190 global rounds:
+Training Loss : 1.5537212745348612
+ 
+Avg Testing Stats after 190 global rounds:
+Testing Accuracy: 67.94%
+Testing Loss: 1.8305729448795318
+
+ | Global Training Round : 191 |
+
+Global estimated params:
+
+ | Global Training Round : 192 |
+
+Global estimated params:
+ 
+Avg Training Stats after 192 global rounds:
+Training Loss : 1.506909053424994
+ 
+Avg Testing Stats after 192 global rounds:
+Testing Accuracy: 55.419999999999995%
+Testing Loss: 1.9235794186592101
+
+ | Global Training Round : 193 |
+
+Global estimated params:
+
+ | Global Training Round : 194 |
+
+Global estimated params:
+ 
+Avg Training Stats after 194 global rounds:
+Training Loss : 1.5167348264654479
+ 
+Avg Testing Stats after 194 global rounds:
+Testing Accuracy: 59.43000000000001%
+Testing Loss: 1.8917230188846588
+
+ | Global Training Round : 195 |
+
+Global estimated params:
+
+ | Global Training Round : 196 |
+
+Global estimated params:
+ 
+Avg Training Stats after 196 global rounds:
+Training Loss : 1.5533608292539915
+ 
+Avg Testing Stats after 196 global rounds:
+Testing Accuracy: 68.09%
+Testing Loss: 1.8287236660718917
+
+ | Global Training Round : 197 |
+
+Global estimated params:
+
+ | Global Training Round : 198 |
+
+Global estimated params:
+ 
+Avg Training Stats after 198 global rounds:
+Training Loss : 1.5067611040671667
+ 
+Avg Testing Stats after 198 global rounds:
+Testing Accuracy: 55.720000000000006%
+Testing Loss: 1.921030081808567
+
+ | Global Training Round : 199 |
+
+Global estimated params:
+
+ | Global Training Round : 200 |
+
+Global estimated params:
+ 
+Avg Training Stats after 200 global rounds:
+Training Loss : 1.5166105524698894
+ 
+Avg Testing Stats after 200 global rounds:
+Testing Accuracy: 59.68%
+Testing Loss: 1.8893971621990204
+
+ Total Run Time: 3503.7635

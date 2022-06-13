@@ -6,7 +6,6 @@
 import numpy as np
 from torchvision import datasets, transforms
 
-
 def mnist_iid(dataset, num_users):
     """
     Sample I.I.D. client data from MNIST dataset
@@ -187,12 +186,189 @@ def cifar_noniid(dataset, num_users):
     return dict_users
 
 
+def cifar_noniid(dataset, num_users):
+    """
+    Sample non-I.I.D client data from CIFAR10 dataset
+    :param dataset:
+    :param num_users:
+    :return:
+    """
+    num_shards, num_imgs = 200, 250
+    idx_shard = [i for i in range(num_shards)]
+    dict_users = {i: np.array([]) for i in range(num_users)}
+    idxs = np.arange(num_shards*num_imgs)
+    # labels = dataset.train_labels.numpy()
+    labels = np.array(dataset.targets)
+
+    # sort labels
+    idxs_labels = np.vstack((idxs, labels))
+    idxs_labels = idxs_labels[:, idxs_labels[1, :].argsort()]
+    idxs = idxs_labels[0, :]
+
+    # divide and assign
+    for i in range(num_users):
+        rand_set = set(np.random.choice(idx_shard, 2, replace=False))
+        idx_shard = list(set(idx_shard) - rand_set)
+        for rand in rand_set:
+            dict_users[i] = np.concatenate(
+                (dict_users[i], idxs[rand*num_imgs:(rand+1)*num_imgs]), axis=0)
+    return dict_users
+
+
+def cifar_noniid_cluster(dataset, num_users, num_clusters=1, cluster_similarity=0., users_groups=None):
+    """
+    Group and sample non-I.I.D client data from CIFAR10 dataset
+    :param dataset:
+    :param num_users:
+    :param num_clusters:
+    :param cluster_similarity: 0~1
+    :return:
+    """
+    # if users_groups is not None:
+    #     assert num_users == np.concatenate(users_groups).size
+    #     assert num_clusters == len(users_groups)
+    #     # idxs_users_groups = np.vstack((users_groups, range(num_clusters)))
+    #     # idxs_users_groups.sort(key=lambda x: len(x))
+    #     users_groups.sort(key=lambda  x:len(x))
+
+    labels = np.array(dataset.targets)
+    num_labels = len(labels)
+    idxs = np.arange(len(labels))
+
+    # sort labels
+    idxs_labels = np.vstack((idxs, labels))
+    idxs_labels = idxs_labels[:, idxs_labels[1, :].argsort()]
+    idxs = idxs_labels[0, :]
+
+    if users_groups is not None:
+        # group accroding to users_groups
+        assert num_users == np.concatenate(users_groups).size
+        assert num_clusters == len(users_groups)
+    else:
+        # group equally
+        num_users_per_cluster = num_users// num_clusters
+        users_groups = [range(i*num_users_per_cluster, (i+1)*num_users_per_cluster) for i in range(num_clusters)]
+
+    # group labels (cluster_similarity = 0)
+    data_split_idxs = [0] + np.cumsum([int(len(users) / num_users * num_labels) for users in users_groups]).tolist()
+    idxs_groups_initial = [idxs[data_split_idxs[i]:data_split_idxs[i+1]] for i in range(num_clusters)]
+
+    percent_groups = np.array(data_split_idxs) / num_labels
+
+    # mix groups according to cluster_similarity
+    assert cluster_similarity >= 0. and cluster_similarity <= 1.
+    idxs_groups = [[] for _ in range(num_clusters)]
+    for c, idxs in enumerate(idxs_groups_initial):
+        mix_size = int(len(idxs_groups_initial[c]) * cluster_similarity)
+        mix_size_groups = mix_size * percent_groups
+
+        idxs_mixed = np.random.choice(idxs, mix_size, replace=False).tolist()
+        idxs_left = list(set(idxs) - set(idxs_mixed))
+        for i in range(num_clusters):
+            idxs_groups[i] += idxs_mixed[int(mix_size_groups[i]):int(mix_size_groups[i+1])]  # may remain ??
+        idxs_groups[c] += idxs_left
+    # if cluster_similarity >= 1:
+    #     num_per_class = len(labels) // num_classes
+    #     num_per_class_per_cluster =  num_per_class // num_clusters
+    #     print(num_per_class, num_per_class_per_cluster)
+    #     for c in range(num_clusters):
+    #         for j in range(num_classes):
+    #             idxs_groups[c] += idxs[j*num_per_class+c*num_per_class_per_cluster:
+    #                                    j*num_per_class+(c+1)*num_per_class_per_cluster].tolist()
+
+    # divide and assign for each cluster, each user randomly choose num_shards_per_user ( default 2) shards
+    dict_users_list = []
+    left_idxs = []
+    num_shards = 200
+    num_imgs = num_labels // num_shards
+    num_shards_per_user = 2
+
+    for c, idxs in enumerate(idxs_groups):
+        my_shards = int(num_shards * len(users_groups[c]) / num_users)
+        idx_shard = [i for i in range(my_shards)]
+        if users_groups is not None:
+            dict_users = {u: np.array([], dtype=int) for u in users_groups[c]}
+        else:
+            cluster_size = num_users // num_clusters
+            dict_users = {u: np.array([], dtype=int) for u in range(c * cluster_size, (c + 1) * cluster_size)}
+
+        # sort labels
+        idxs_labels = np.vstack((idxs, labels[idxs]))
+        idxs_labels = idxs_labels[:, idxs_labels[1, :].argsort()]
+        idxs = idxs_labels[0, :]
+
+        for i, u in enumerate(dict_users.keys()):  # num_users * num_shards_per_user <= num_shards
+            # if len(idx_shard) < 2:
+            #     for rand in idx_shard:
+            #         dict_users[u] = np.concatenate(
+            #             (dict_users[u], idxs[rand * num_imgs:(rand + 1) * num_imgs]), axis=0)
+            #     for _ in range(2-len(idx_shard)):
+            #         dict_users[u] = np.concatenate(
+            #             (dict_users[u], left_idxs[0:num_imgs]), axis=0)
+            #         left_idxs = left_idxs[num_imgs:]
+            # else:
+            rand_set = set(np.random.choice(idx_shard, num_shards_per_user, replace=False))
+            idx_shard = list(set(idx_shard) - rand_set)
+            for rand in rand_set:
+                dict_users[u] = np.concatenate(
+                    (dict_users[u], idxs[rand * num_imgs:(rand + 1) * num_imgs]), axis=0)
+            np.random.shuffle(dict_users[u])
+
+        for rand in idx_shard:
+            left_idxs.extend(idxs[rand * num_imgs:(rand + 1) * num_imgs])
+
+        dict_users_list.append(dict_users)
+        # dict_users_list[idxs_users_groups[c][0]] = dict_users
+
+    if users_groups is not None:
+        idxs_groups = [[] for _ in range(num_clusters)]
+        for c, dict_users in enumerate(dict_users_list):
+            for user in dict_users:
+                idxs_groups[c].extend(dict_users[user])
+
+    return dict_users_list, idxs_groups
+
+
 if __name__ == '__main__':
-    dataset_train = datasets.MNIST('./data/mnist/', train=True, download=True,
+    # dataset_train = datasets.MNIST('../data/mnist/', train=True, download=True,
+    #                                transform=transforms.Compose([
+    #                                    transforms.ToTensor(),
+    #                                    transforms.Normalize((0.1307,),
+    #                                                         (0.3081,))
+    #                                ]))
+    # num = 100
+    # d = mnist_noniid(dataset_train, num)
+
+    dataset_train = datasets.CIFAR10('../data/cifar/', train=True, download=True,
                                    transform=transforms.Compose([
                                        transforms.ToTensor(),
-                                       transforms.Normalize((0.1307,),
-                                                            (0.3081,))
+                                       transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
                                    ]))
-    num = 100
-    d = mnist_noniid(dataset_train, num)
+    num_users, num_clusters, cluster_similarity = 100, 5, 1
+    users_groups = [[i for i in range(20)], [i for i in range(20, 40)], [i for i in range(40, 60)],
+                    [i for i in range(60, 80)], [i for i in range(80, 100)]]
+    # users_groups = None
+    x = users_groups[0].pop(-1)
+    users_groups[-1].append(x)
+
+    dict_users_list, idxs_groups = cifar_noniid_cluster(dataset_train, num_users, num_clusters, cluster_similarity,
+                                                        users_groups)
+
+    import pandas as pd
+    for c in range(num_clusters):
+        print("\n Cluster %d:" % c)
+        print("labels:", set(np.array(dataset_train.targets)[idxs_groups[c]]),
+              len(np.array(dataset_train.targets)[idxs_groups[c]]))
+        targets = list(np.array(dataset_train.targets)[idxs_groups[c]])
+        print("label distribution:", [(i, targets.count(i)) for i in range(10)], len(targets))
+        my_users = [user for user in dict_users_list[c]]
+        print("%d users:" % len(my_users), my_users)
+        user_labels_groups = [list(pd.value_counts((np.array(dataset_train.targets)[dict_users_list[c][u]])).items())
+                              for u in dict_users_list[c]]
+        print(user_labels_groups)
+
+    from torch.utils.data import DataLoader
+
+    trainloader = DataLoader(dataset_train, batch_size=10, shuffle=True)
+
+

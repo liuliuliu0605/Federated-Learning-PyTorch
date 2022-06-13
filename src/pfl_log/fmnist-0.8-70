@@ -1,0 +1,47 @@
+Namespace(cluster_similarity=0.8, data_parallel=False, dataset='fmnist', epochs=200, fake=False, frac=1.0, gpu=0, iid=0, kernel_num=9, kernel_sizes='3,4,5', local_bs=10, local_ep=1, local_iter=10, local_rank=None, log_location='../logs', lr=0.01, max_pool='True', mix_ep=70, model='lr', momentum=0.5, norm='batch_norm', num_channels=1, num_classes=10, num_clusters=5, num_filters=32, num_users=100, optimizer='sgd', seed=10, stopping_rounds=10, topo='complete', unequal=0, verbose=0)
+
+Federated parameters:
+    Model     : lr
+    Optimizer : sgd
+    Learning  : 0.01
+    Global Rounds   : 200
+    Local Iterations   : 10
+    Mix cycles     : 70
+    Non-IID
+    Fraction of users  : 1.0
+    Local Batch size   : 10
+
+Network details:
+    Users       : 100
+    Clusters    : 5
+    Topology    : complete
+    Cluster Similarity : 0.8
+
+
+Topo (p=1.00000):
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+
+Label distribution in clusters:
+-Cluster 0:  [(0, 2163), (1, 2157), (2, 987), (3, 933), (4, 1000), (5, 920), (6, 954), (7, 966), (8, 936), (9, 984)]
+-Cluster 1:  [(0, 991), (1, 929), (2, 2161), (3, 2159), (4, 970), (5, 950), (6, 950), (7, 970), (8, 982), (9, 938)]
+-Cluster 2:  [(0, 944), (1, 976), (2, 933), (3, 987), (4, 2129), (5, 2191), (6, 968), (7, 952), (8, 995), (9, 925)]
+-Cluster 3:  [(0, 958), (1, 962), (2, 969), (3, 951), (4, 965), (5, 955), (6, 2172), (7, 2148), (8, 956), (9, 964)]
+-Cluster 4:  [(0, 944), (1, 976), (2, 950), (3, 970), (4, 936), (5, 984), (6, 956), (7, 964), (8, 2131), (9, 2189)]
+Traceback (most recent call last):
+  File "pfl_main.py", line 109, in <module>
+    global_model.to(device)
+  File "/data/magnolia/venv_set/torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 899, in to
+    return self._apply(convert)
+  File "/data/magnolia/venv_set/torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 570, in _apply
+    module._apply(fn)
+  File "/data/magnolia/venv_set/torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 593, in _apply
+    param_applied = fn(param)
+  File "/data/magnolia/venv_set/torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 897, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+RuntimeError: CUDA error: out of memory
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.

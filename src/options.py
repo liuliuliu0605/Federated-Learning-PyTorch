@@ -8,15 +8,28 @@ import argparse
 def args_parser():
     parser = argparse.ArgumentParser()
 
-    # federated arguments (Notation for the arguments followed from paper)
+    # federated arguments
     parser.add_argument('--epochs', type=int, default=10,
                         help="number of rounds of training")
     parser.add_argument('--num_users', type=int, default=100,
                         help="number of users: K")
+    parser.add_argument('--num_clusters', type=int, default=5,
+                        help="number of clusters")
+    parser.add_argument('--cluster_similarity', type=float, default=1.0,
+                        help='the similarity between clusters (0~1)')
+    parser.add_argument('--topo', type=str, default='complete',
+                        help="topology of PSes")
     parser.add_argument('--frac', type=float, default=0.1,
                         help='the fraction of clients: C')
-    parser.add_argument('--local_ep', type=int, default=10,
-                        help="the number of local epochs: E")
+
+    local_group = parser.add_mutually_exclusive_group()
+    local_group.add_argument('--local_ep', type=int, default=1, help="the number of local epochs: E")
+    local_group.add_argument('--local_iter', type=int, default=0, help="the number of local iterations: E")
+
+    # parser.add_argument('--local_ep', type=int, default=1,
+    #                     help="the number of local epochs: E")
+    parser.add_argument('--mix_ep', type=int, default=1,
+                        help="the number of rounds before mixing: tau")
     parser.add_argument('--local_bs', type=int, default=10,
                         help="local batch size: B")
     parser.add_argument('--lr', type=float, default=0.01,
@@ -44,7 +57,7 @@ def args_parser():
 
     # gpu usage
     gpu_group = parser.add_mutually_exclusive_group()
-    gpu_group.add_argument('--gpu', default=None, type=int, help="To use cuda, set \
+    gpu_group.add_argument('--gpu', default=0, type=int, help="To use cuda, set \
                             to a specific GPU ID. Default set to use CPU.")
     gpu_group.add_argument('--data_parallel', action='store_true', help="To use \
                             data parallelism")
@@ -68,5 +81,8 @@ def args_parser():
                         help='rounds of early stopping')
     parser.add_argument('--verbose', type=int, default=1, help='verbose')
     parser.add_argument('--seed', type=int, default=1, help='random seed')
+    parser.add_argument('--fake', action='store_true', help="fake training")
+    parser.add_argument('--log_location', type=str, default='../logs', help="fake training")
+    parser.add_argument('--estimate', action='store_true', help="whether to estimate parameters")
     args = parser.parse_args()
     return args

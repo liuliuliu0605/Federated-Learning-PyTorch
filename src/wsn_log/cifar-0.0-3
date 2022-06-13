@@ -1,0 +1,1305 @@
+Namespace(cluster_similarity=0.0, data_parallel=False, dataset='cifar', epochs=1000, fake=True, frac=1.0, gpu=1, iid=0, kernel_num=9, kernel_sizes='3,4,5', local_bs=10, local_ep=1, local_rank=None, lr=0.01, max_pool='True', mix_ep=3, model='cnn', momentum=0.5, norm='batch_norm', num_channels=1, num_classes=10, num_clusters=5, num_filters=32, num_users=100, optimizer='sgd', seed=1, stopping_rounds=10, topo='complete', unequal=0, verbose=0)
+
+Experimental details:
+    Model     : cnn
+    Optimizer : sgd
+    Learning  : 0.01
+    Global Rounds   : 1000
+    Local Epoches   : 1
+    Mix Epoches     : 3
+
+Network details:
+    Users       : 100
+    Clusters    : 5
+    Topology    : complete
+    Cluster Similarity : 0.0
+
+Federated parameters:
+    Non-IID
+    Fraction of users  : 1.0
+    Local Batch size   : 10
+    Local Epochs       : 1
+
+../logs/2022-03-20_22:35:36_Dataset[cifar]_Cluster[5]_Sim[0.00]_Topo[complete]_Mix[3]_lr[0.010]_frac[1.0].pkl
+FCM: record cluster information at round -1
+Files already downloaded and verified
+Files already downloaded and verified
+[(0, 5000), (1, 3500), (2, 0), (3, 0), (4, 0), (5, 0), (6, 0), (7, 0), (8, 0), (9, 0)] 8500
+[[1, 2, 9, 13, 24, 26, 37, 47, 55, 60, 61, 64, 71, 72, 82, 95, 98], [0, 5, 6, 11, 14, 19, 21, 36, 42, 43, 45, 53, 57, 73, 75, 77, 85, 92, 94], [10, 12, 16, 18, 20, 29, 33, 34, 39, 40, 44, 48, 52, 54, 56, 58, 62, 63, 65, 69, 79, 81, 84, 87, 96, 97, 99], [17, 23, 27, 28, 31, 35, 38, 41, 51, 59, 66, 67, 68, 70, 74, 76, 86, 88, 90, 91], [3, 4, 7, 8, 15, 22, 25, 30, 32, 46, 49, 50, 78, 80, 83, 89, 93]]
+
+Label distribution in clusters:
+-Cluster 0:  [(0, 5000), (1, 3500), (2, 0), (3, 0), (4, 0), (5, 0), (6, 0), (7, 0), (8, 0), (9, 0)]
+-Cluster 1:  [(0, 0), (1, 1500), (2, 5000), (3, 3000), (4, 0), (5, 0), (6, 0), (7, 0), (8, 0), (9, 0)]
+-Cluster 2:  [(0, 0), (1, 0), (2, 0), (3, 2000), (4, 5000), (5, 5000), (6, 1500), (7, 0), (8, 0), (9, 0)]
+-Cluster 3:  [(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (5, 0), (6, 3500), (7, 5000), (8, 1500), (9, 0)]
+-Cluster 4:  [(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (5, 0), (6, 0), (7, 0), (8, 3500), (9, 5000)]
+CNNCifar(
+  (conv1): Conv2d(3, 6, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(6, 16, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=400, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=84, bias=True)
+  (fc3): Linear(in_features=84, out_features=10, bias=True)
+)
+num of params:  62006
+
+Topo (p=1.00000):
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+  0%|          | 0/1000 [00:00<?, ?it/s]  1%|          | 7/1000 [00:00<00:15, 65.64it/s]  1%|▏         | 14/1000 [00:00<00:19, 49.40it/s]  2%|▏         | 21/1000 [00:00<00:17, 55.23it/s]  3%|▎         | 28/1000 [00:00<00:16, 59.71it/s]  4%|▎         | 35/1000 [00:00<00:15, 61.71it/s]
+ | Global Training Round : 1 |
+
+Remain energy: 9999900
+{'intra-comm': 0.08547368385768148, 'inter-comm': 0, 'local-update': 0.10000000000000928, 'default': 0.0} 0.18547368385769075
+
+ | Global Training Round : 2 |
+
+Remain energy: 9999899.814526286
+{'intra-comm': 0.16701249656946243, 'inter-comm': 0, 'local-update': 0.19999999999998785, 'default': 0.0} 0.3670124965694503
+
+ | Global Training Round : 3 |
+
+Remain energy: 9999899.632987438
+{'intra-comm': 0.25388373209223897, 'inter-comm': 0.06918022329770052, 'local-update': 0.3000000000000185, 'default': 0.0} 0.623063955389958
+
+ | Global Training Round : 4 |
+
+Remain energy: 9999899.376935944
+{'intra-comm': 0.3390388209797791, 'inter-comm': 0.06918022329770052, 'local-update': 0.4000000000001185, 'default': 0.0} 0.808219044277598
+
+ | Global Training Round : 5 |
+
+Remain energy: 9999899.191780828
+{'intra-comm': 0.41824865618995727, 'inter-comm': 0.06918022329770052, 'local-update': 0.5000000000002185, 'default': 0.0} 0.9874288794878763
+
+ | Global Training Round : 6 |
+
+Remain energy: 9999899.012570959
+{'intra-comm': 0.5052376156210743, 'inter-comm': 0.13986220916808276, 'local-update': 0.6000000000003185, 'default': 0.0} 1.2450998247894756
+
+ | Global Training Round : 7 |
+
+Remain energy: 9999898.75489998
+{'intra-comm': 0.5880745321388637, 'inter-comm': 0.13986220916808276, 'local-update': 0.7000000000004185, 'default': 0.0} 1.4279367413073651
+
+ | Global Training Round : 8 |
+
+Remain energy: 9999898.572063034
+{'intra-comm': 0.6719802837204569, 'inter-comm': 0.13986220916808276, 'local-update': 0.8000000000005185, 'default': 0.0} 1.6118424928890582
+
+ | Global Training Round : 9 |
+
+Remain energy: 9999898.388157245
+{'intra-comm': 0.7510598532407112, 'inter-comm': 0.20718626907146534, 'local-update': 0.9000000000006185, 'default': 0.0} 1.858246122312795
+
+ | Global Training Round : 10 |
+
+Remain energy: 9999898.141753584
+{'intra-comm': 0.8246822524109273, 'inter-comm': 0.20718626907146534, 'local-update': 1.0000000000007185, 'default': 0.0} 2.031868521483111
+
+ | Global Training Round : 11 |
+
+Remain energy: 9999897.968131151
+{'intra-comm': 0.9063384867674661, 'inter-comm': 0.20718626907146534, 'local-update': 1.1000000000002634, 'default': 0.0} 2.213524755839195
+
+ | Global Training Round : 12 |
+
+Remain energy: 9999897.786474882
+{'intra-comm': 0.992305408164153, 'inter-comm': 0.2515755598573589, 'local-update': 1.1999999999998083, 'default': 0.0} 2.44388096802132
+
+ | Global Training Round : 13 |
+
+Remain energy: 9999897.556118637
+{'intra-comm': 1.0738053879319582, 'inter-comm': 0.2515755598573589, 'local-update': 1.2999999999993532, 'default': 0.0} 2.6253809477886705
+
+ | Global Training Round : 14 |
+
+Remain energy: 9999897.374618627
+{'intra-comm': 1.151261998770015, 'inter-comm': 0.2515755598573589, 'local-update': 1.3999999999988981, 'default': 0.0} 2.802837558626272
+
+ | Global Training Round : 15 |
+
+Remain energy: 9999897.197161984
+{'intra-comm': 1.23615361788352, 'inter-comm': 0.3092898538793362, 'local-update': 1.499999999998443, 'default': 0.0} 3.045443471761299
+
+ | Global Training Round : 16 |
+
+Remain energy: 9999896.954556037
+{'intra-comm': 1.3261710609989112, 'inter-comm': 0.3092898538793362, 'local-update': 1.599999999997988, 'default': 0.0} 3.2354609148762354
+
+ | Global Training Round : 17 |
+
+Remain energy: 9999896.76453856
+{'intra-comm': 1.411254585252286, 'inter-comm': 0.3092898538793362, 'local-update': 1.6999999999975328, 'default': 0.0} 3.420544439129155
+
+ | Global Training Round : 18 |
+
+Remain energy: 9999896.57945501
+{'intra-comm': 1.4921988677348612, 'inter-comm': 0.3921372268395363, 'local-update': 1.7999999999970777, 'default': 0.0} 3.684336094571475
+
+ | Global Training Round : 19 |
+
+Remain energy: 9999896.31566332
+{'intra-comm': 1.5687341282005032, 'inter-comm': 0.3921372268395363, 'local-update': 1.8999999999966226, 'default': 0.0} 3.860871355036662
+
+ | Global Training Round : 20 |
+
+Remain energy: 9999896.139128027
+{'intra-comm': 1.6469004185598146, 'inter-comm': 0.3921372268395363, 'local-update': 1.9999999999961675, 'default': 0.0} 4.039037645395519
+
+ | Global Training Round : 21 |
+
+Remain energy: 9999895.960961705
+{'intra-comm': 1.726388081067476, 'inter-comm': 0.4773447265619176, 'local-update': 2.0999999999968226, 'default': 0.0} 4.303732807626217
+
+ | Global Training Round : 22 |
+
+Remain energy: 9999895.69626651
+{'intra-comm': 1.8013257376207101, 'inter-comm': 0.4773447265619176, 'local-update': 2.1999999999974778, 'default': 0.0} 4.478670464180105
+
+ | Global Training Round : 23 |
+
+Remain energy: 9999895.521328824
+{'intra-comm': 1.8802285259225584, 'inter-comm': 0.4773447265619176, 'local-update': 2.299999999998133, 'default': 0.0} 4.657573252482608
+
+ | Global Training Round : 24 |
+
+Remain energy: 9999895.342425996
+{'intra-comm': 1.9603947778735888, 'inter-comm': 0.5456229898510243, 'local-update': 2.399999999998788, 'default': 0.0} 4.906017767723402
+
+ | Global Training Round : 25 |
+
+Remain energy: 9999895.093981449
+{'intra-comm': 2.0459523533042154, 'inter-comm': 0.5456229898510243, 'local-update': 2.499999999999443, 'default': 0.0} 5.091575343154683
+
+ | Global Training Round : 26 |
+
+Remain energy: 9999894.908423843
+{'intra-comm': 2.1355728768657616, 'inter-comm': 0.5456229898510243, 'local-update': 2.6000000000000982, 'default': 0.0} 5.281195866716884
+
+ | Global Training Round : 27 |
+
+Remain energy: 9999894.71880329
+{'intra-comm': 2.2205527821728963, 'inter-comm': 0.6139528242774149, 'local-update': 2.7000000000007534, 'default': 0.0} 5.534505606451065
+
+ | Global Training Round : 28 |
+
+Remain energy: 9999894.46549351
+{'intra-comm': 2.3046950111651965, 'inter-comm': 0.6139528242774149, 'local-update': 2.8000000000014085, 'default': 0.0} 5.7186478354440204
+
+ | Global Training Round : 29 |
+
+Remain energy: 9999894.281351259
+{'intra-comm': 2.3875860820591654, 'inter-comm': 0.6139528242774149, 'local-update': 2.9000000000020636, 'default': 0.0} 5.901538906338644
+
+ | Global Training Round : 30 |
+
+Remain energy: 9999894.098460149
+{'intra-comm': 2.464604387660593, 'inter-comm': 0.7058025272866243, 'local-update': 3.0000000000027187, 'default': 0.0} 6.170406914949936
+
+ | Global Training Round : 31 |
+
+Remain energy: 9999893.82959211
+{'intra-comm': 2.552099503139786, 'inter-comm': 0.7058025272866243, 'local-update': 3.100000000003374, 'default': 0.0} 6.357902030429784
+
+ | Global Training Round : 32 |
+
+Remain energy: 9999893.642096959
+{'intra-comm': 2.6443178100394094, 'inter-comm': 0.7058025272866243, 'local-update': 3.200000000004029, 'default': 0.0} 6.550120337330062
+
+ | Global Training Round : 33 |
+
+Remain energy: 9999893.449878618
+{'intra-comm': 2.728576223778265, 'inter-comm': 0.7389483796054759, 'local-update': 3.300000000004684, 'default': 0.0} 6.767524603388425
+
+ | Global Training Round : 34 |
+
+Remain energy: 9999893.23247432
+{'intra-comm': 2.815984556463084, 'inter-comm': 0.7389483796054759, 'local-update': 3.400000000005339, 'default': 0.0} 6.954932936073899
+
+ | Global Training Round : 35 |
+
+Remain energy: 9999893.045065958
+{'intra-comm': 2.895379256034007, 'inter-comm': 0.7389483796054759, 'local-update': 3.5000000000059943, 'default': 0.0} 7.1343276356454775
+
+ | Global Training Round : 36 |
+
+Remain energy: 9999892.865671225
+{'intra-comm': 2.982410529864394, 'inter-comm': 0.8314650058883369, 'local-update': 3.6000000000066494, 'default': 0.0} 7.413875535759381
+
+ | Global Training Round : 37 |
+
+Remain energy: 9999892.586123288
+{'intra-comm': 3.0711835756145986, 'inter-comm': 0.8314650058883369, 'local-update': 3.7000000000073046, 'default': 0.0} 7.60264858151024
+
+ | Global Training Round : 38 |
+
+Remain energy: 9999892.39735021
+{'intra-comm': 3.155345639859473, 'inter-comm': 0.8314650058883369, 'local-update': 3.8000000000079597, 'default': 0.0} 7.78681064575577
+
+ | Global Training Round : 39 |
+
+Remain energy: 9999892.213188116
+{'intra-comm': 3.2366991219362795, 'inter-comm': 0.872521338058555, 'local-update': 3.900000000008615, 'default': 0.0} 8.00922046000345
+
+ | Global Training Round : 40 |
+
+Remain energy: 9999891.99077827
+{'intra-comm': 3.3184458461928106, 'inter-comm': 0.872521338058555, 'local-update': 4.00000000000927, 'default': 0.0} 8.190967184260636
+  4%|▍         | 42/1000 [00:00<00:15, 62.53it/s]  5%|▍         | 49/1000 [00:00<00:15, 63.34it/s]  6%|▌         | 56/1000 [00:00<00:14, 63.80it/s]  6%|▋         | 63/1000 [00:01<00:14, 63.83it/s]  7%|▋         | 70/1000 [00:01<00:14, 64.06it/s]  8%|▊         | 77/1000 [00:01<00:14, 61.99it/s]
+ | Global Training Round : 41 |
+
+Remain energy: 9999891.80903151
+{'intra-comm': 3.3970009677140163, 'inter-comm': 0.872521338058555, 'local-update': 4.100000000009925, 'default': 0.0} 8.369522305782496
+
+ | Global Training Round : 42 |
+
+Remain energy: 9999891.630476357
+{'intra-comm': 3.4793187642573473, 'inter-comm': 0.923426514864133, 'local-update': 4.20000000001058, 'default': 0.0} 8.60274527913206
+
+ | Global Training Round : 43 |
+
+Remain energy: 9999891.39725335
+{'intra-comm': 3.5623170875100265, 'inter-comm': 0.923426514864133, 'local-update': 4.300000000011235, 'default': 0.0} 8.785743602385395
+
+ | Global Training Round : 44 |
+
+Remain energy: 9999891.214254996
+{'intra-comm': 3.6465436877648076, 'inter-comm': 0.923426514864133, 'local-update': 4.40000000001189, 'default': 0.0} 8.96997020264083
+
+ | Global Training Round : 45 |
+
+Remain energy: 9999891.030028366
+{'intra-comm': 3.7320615319539963, 'inter-comm': 0.9947237510780254, 'local-update': 4.5000000000125455, 'default': 0.0} 9.226785283044567
+
+ | Global Training Round : 46 |
+
+Remain energy: 9999890.773213252
+{'intra-comm': 3.8164203816785127, 'inter-comm': 0.9947237510780254, 'local-update': 4.600000000013201, 'default': 0.0} 9.411144132769738
+
+ | Global Training Round : 47 |
+
+Remain energy: 9999890.588854369
+{'intra-comm': 3.8977370700486342, 'inter-comm': 0.9947237510780254, 'local-update': 4.700000000013856, 'default': 0.0} 9.592460821140516
+
+ | Global Training Round : 48 |
+
+Remain energy: 9999890.407537647
+{'intra-comm': 3.9841974189212124, 'inter-comm': 1.0283883626924317, 'local-update': 4.800000000014511, 'default': 0.0} 9.812585781628155
+
+ | Global Training Round : 49 |
+
+Remain energy: 9999890.187412651
+{'intra-comm': 4.072828810979883, 'inter-comm': 1.0283883626924317, 'local-update': 4.900000000015166, 'default': 0.0} 10.001217173687479
+
+ | Global Training Round : 50 |
+
+Remain energy: 9999889.99878123
+{'intra-comm': 4.153016416698051, 'inter-comm': 1.0283883626924317, 'local-update': 5.000000000015821, 'default': 0.0} 10.181404779406304
+
+ | Global Training Round : 51 |
+
+Remain energy: 9999889.818593586
+{'intra-comm': 4.232209465186055, 'inter-comm': 1.0497080565774115, 'local-update': 5.100000000016476, 'default': 0.0} 10.381917521779943
+
+ | Global Training Round : 52 |
+
+Remain energy: 9999889.618080815
+{'intra-comm': 4.310248361308399, 'inter-comm': 1.0497080565774115, 'local-update': 5.200000000017131, 'default': 0.0} 10.559956417902942
+
+ | Global Training Round : 53 |
+
+Remain energy: 9999889.440041881
+{'intra-comm': 4.398673297365836, 'inter-comm': 1.0497080565774115, 'local-update': 5.3000000000177865, 'default': 0.0} 10.748381353961033
+
+ | Global Training Round : 54 |
+
+Remain energy: 9999889.251616918
+{'intra-comm': 4.493909046498804, 'inter-comm': 1.089885467433979, 'local-update': 5.400000000018442, 'default': 0.0} 10.983794513951224
+
+ | Global Training Round : 55 |
+
+Remain energy: 9999889.016203722
+{'intra-comm': 4.56799082133364, 'inter-comm': 1.089885467433979, 'local-update': 5.500000000019097, 'default': 0.0} 11.157876288786717
+
+ | Global Training Round : 56 |
+
+Remain energy: 9999888.84212192
+{'intra-comm': 4.650213305285893, 'inter-comm': 1.089885467433979, 'local-update': 5.600000000019752, 'default': 0.0} 11.340098772739625
+
+ | Global Training Round : 57 |
+
+Remain energy: 9999888.659899404
+{'intra-comm': 4.732532979874863, 'inter-comm': 1.2017685860977236, 'local-update': 5.700000000020407, 'default': 0.0} 11.634301565992994
+
+ | Global Training Round : 58 |
+
+Remain energy: 9999888.365696572
+{'intra-comm': 4.818233399502611, 'inter-comm': 1.2017685860977236, 'local-update': 5.800000000021062, 'default': 0.0} 11.820001985621396
+
+ | Global Training Round : 59 |
+
+Remain energy: 9999888.179996118
+{'intra-comm': 4.9028059169166465, 'inter-comm': 1.2017685860977236, 'local-update': 5.900000000021717, 'default': 0.0} 12.004574503036087
+
+ | Global Training Round : 60 |
+
+Remain energy: 9999887.995423578
+{'intra-comm': 4.990545514631965, 'inter-comm': 1.2502830574070014, 'local-update': 6.000000000022372, 'default': 0.0} 12.24082857206134
+
+ | Global Training Round : 61 |
+
+Remain energy: 9999887.759169476
+{'intra-comm': 5.0739285760090205, 'inter-comm': 1.2502830574070014, 'local-update': 6.1000000000230274, 'default': 0.0} 12.42421163343905
+
+ | Global Training Round : 62 |
+
+Remain energy: 9999887.575786376
+{'intra-comm': 5.160713373499949, 'inter-comm': 1.2502830574070014, 'local-update': 6.200000000023683, 'default': 0.0} 12.610996430930633
+
+ | Global Training Round : 63 |
+
+Remain energy: 9999887.389001548
+{'intra-comm': 5.238454040130662, 'inter-comm': 1.2953899287290758, 'local-update': 6.300000000024338, 'default': 0.0} 12.833843968884075
+
+ | Global Training Round : 64 |
+
+Remain energy: 9999887.166153973
+{'intra-comm': 5.318764335566936, 'inter-comm': 1.2953899287290758, 'local-update': 6.400000000024993, 'default': 0.0} 13.014154264321004
+
+ | Global Training Round : 65 |
+
+Remain energy: 9999886.985843645
+{'intra-comm': 5.404585217737742, 'inter-comm': 1.2953899287290758, 'local-update': 6.500000000025648, 'default': 0.0} 13.199975146492466
+
+ | Global Training Round : 66 |
+
+Remain energy: 9999886.800022729
+{'intra-comm': 5.485673137141316, 'inter-comm': 1.3413567440766612, 'local-update': 6.600000000026303, 'default': 0.0} 13.42702988124428
+
+ | Global Training Round : 67 |
+
+Remain energy: 9999886.572967961
+{'intra-comm': 5.565941465457884, 'inter-comm': 1.3413567440766612, 'local-update': 6.700000000026958, 'default': 0.0} 13.607298209561502
+
+ | Global Training Round : 68 |
+
+Remain energy: 9999886.392699605
+{'intra-comm': 5.64170065960283, 'inter-comm': 1.3413567440766612, 'local-update': 6.800000000027613, 'default': 0.0} 13.783057403707105
+
+ | Global Training Round : 69 |
+
+Remain energy: 9999886.216940379
+{'intra-comm': 5.725290727079766, 'inter-comm': 1.3862817939323286, 'local-update': 6.900000000028268, 'default': 0.0} 14.011572521040364
+
+ | Global Training Round : 70 |
+
+Remain energy: 9999885.98842522
+{'intra-comm': 5.804300022196329, 'inter-comm': 1.3862817939323286, 'local-update': 7.0000000000289235, 'default': 0.0} 14.190581816157582
+
+ | Global Training Round : 71 |
+
+Remain energy: 9999885.809415897
+{'intra-comm': 5.8933636782364145, 'inter-comm': 1.3862817939323286, 'local-update': 7.100000000029579, 'default': 0.0} 14.379645472198323
+
+ | Global Training Round : 72 |
+
+Remain energy: 9999885.620352207
+{'intra-comm': 5.972245401335064, 'inter-comm': 1.4327364550739752, 'local-update': 7.200000000030234, 'default': 0.0} 14.604981856439274
+
+ | Global Training Round : 73 |
+
+Remain energy: 9999885.3950158
+{'intra-comm': 6.058871075796526, 'inter-comm': 1.4327364550739752, 'local-update': 7.300000000030889, 'default': 0.0} 14.791607530901391
+
+ | Global Training Round : 74 |
+
+Remain energy: 9999885.208390087
+{'intra-comm': 6.132330701940702, 'inter-comm': 1.4327364550739752, 'local-update': 7.400000000031544, 'default': 0.0} 14.96506715704622
+
+ | Global Training Round : 75 |
+
+Remain energy: 9999885.034930428
+{'intra-comm': 6.2109633900621715, 'inter-comm': 1.4692840306844623, 'local-update': 7.500000000032199, 'default': 0.0} 15.180247420778834
+
+ | Global Training Round : 76 |
+
+Remain energy: 9999884.819750128
+{'intra-comm': 6.288548358155893, 'inter-comm': 1.4692840306844623, 'local-update': 7.600000000032854, 'default': 0.0} 15.35783238887321
+
+ | Global Training Round : 77 |
+
+Remain energy: 9999884.642165128
+{'intra-comm': 6.375828605644197, 'inter-comm': 1.4692840306844623, 'local-update': 7.700000000033509, 'default': 0.0} 15.54511263636217
+
+ | Global Training Round : 78 |
+
+Remain energy: 9999884.454884855
+{'intra-comm': 6.461826136049351, 'inter-comm': 1.5094467282489454, 'local-update': 7.8000000000341645, 'default': 0.0} 15.77127286433246
+
+ | Global Training Round : 79 |
+
+Remain energy: 9999884.22872459
+{'intra-comm': 6.546389948991029, 'inter-comm': 1.5094467282489454, 'local-update': 7.90000000003482, 'default': 0.0} 15.955836677274796
+
+ | Global Training Round : 80 |
+
+Remain energy: 9999884.044160748
+{'intra-comm': 6.6329237751180194, 'inter-comm': 1.5094467282489454, 'local-update': 8.000000000035474, 'default': 0.0} 16.14237050340244
+  8%|▊         | 84/1000 [00:01<00:15, 59.49it/s]  9%|▉         | 91/1000 [00:01<00:14, 60.94it/s] 10%|▉         | 98/1000 [00:01<00:14, 61.84it/s] 10%|█         | 105/1000 [00:01<00:14, 61.76it/s] 11%|█         | 112/1000 [00:01<00:14, 61.91it/s] 12%|█▏        | 119/1000 [00:01<00:14, 62.02it/s]
+ | Global Training Round : 81 |
+
+Remain energy: 9999883.857626883
+{'intra-comm': 6.716054765202912, 'inter-comm': 1.566857351792198, 'local-update': 8.100000000031688, 'default': 0.0} 16.382912117026798
+
+ | Global Training Round : 82 |
+
+Remain energy: 9999883.617085239
+{'intra-comm': 6.796621004367653, 'inter-comm': 1.566857351792198, 'local-update': 8.200000000027902, 'default': 0.0} 16.56347835618775
+
+ | Global Training Round : 83 |
+
+Remain energy: 9999883.43651897
+{'intra-comm': 6.881761299852117, 'inter-comm': 1.566857351792198, 'local-update': 8.300000000024117, 'default': 0.0} 16.74861865166843
+
+ | Global Training Round : 84 |
+
+Remain energy: 9999883.25137864
+{'intra-comm': 6.961120603206381, 'inter-comm': 1.6166463599623235, 'local-update': 8.40000000002033, 'default': 0.0} 16.977766963189033
+
+ | Global Training Round : 85 |
+
+Remain energy: 9999883.022230297
+{'intra-comm': 7.040895034928305, 'inter-comm': 1.6166463599623235, 'local-update': 8.500000000016545, 'default': 0.0} 17.157541394907174
+
+ | Global Training Round : 86 |
+
+Remain energy: 9999882.842455825
+{'intra-comm': 7.123219564878326, 'inter-comm': 1.6166463599623235, 'local-update': 8.60000000001276, 'default': 0.0} 17.33986592485341
+
+ | Global Training Round : 87 |
+
+Remain energy: 9999882.660131264
+{'intra-comm': 7.211154865698891, 'inter-comm': 1.6553946486345716, 'local-update': 8.700000000008973, 'default': 0.0} 17.566549514342434
+
+ | Global Training Round : 88 |
+
+Remain energy: 9999882.433447644
+{'intra-comm': 7.290219045011166, 'inter-comm': 1.6553946486345716, 'local-update': 8.800000000005188, 'default': 0.0} 17.745613693650924
+
+ | Global Training Round : 89 |
+
+Remain energy: 9999882.254383434
+{'intra-comm': 7.368877085069543, 'inter-comm': 1.6553946486345716, 'local-update': 8.900000000001402, 'default': 0.0} 17.924271733705517
+
+ | Global Training Round : 90 |
+
+Remain energy: 9999882.07572536
+{'intra-comm': 7.455811895161306, 'inter-comm': 1.6980352700585302, 'local-update': 8.999999999997616, 'default': 0.0} 18.153847165217453
+
+ | Global Training Round : 91 |
+
+Remain energy: 9999881.846149897
+{'intra-comm': 7.538023131725001, 'inter-comm': 1.6980352700585302, 'local-update': 9.09999999999383, 'default': 0.0} 18.33605840177736
+
+ | Global Training Round : 92 |
+
+Remain energy: 9999881.663938634
+{'intra-comm': 7.629015305269947, 'inter-comm': 1.6980352700585302, 'local-update': 9.199999999990045, 'default': 0.0} 18.527050575318523
+
+ | Global Training Round : 93 |
+
+Remain energy: 9999881.472946418
+{'intra-comm': 7.712680840052488, 'inter-comm': 1.8291955360139347, 'local-update': 9.299999999986259, 'default': 0.0} 18.84187637605268
+
+ | Global Training Round : 94 |
+
+Remain energy: 9999881.158120591
+{'intra-comm': 7.790761770854804, 'inter-comm': 1.8291955360139347, 'local-update': 9.399999999982473, 'default': 0.0} 19.01995730685121
+
+ | Global Training Round : 95 |
+
+Remain energy: 9999880.980039623
+{'intra-comm': 7.869446296588813, 'inter-comm': 1.8291955360139347, 'local-update': 9.499999999978687, 'default': 0.0} 19.198641832581437
+
+ | Global Training Round : 96 |
+
+Remain energy: 9999880.80135507
+{'intra-comm': 7.950169553020392, 'inter-comm': 1.939671670234069, 'local-update': 9.599999999974901, 'default': 0.0} 19.489841223229362
+
+ | Global Training Round : 97 |
+
+Remain energy: 9999880.51015565
+{'intra-comm': 8.026735119335541, 'inter-comm': 1.939671670234069, 'local-update': 9.699999999971116, 'default': 0.0} 19.666406789540726
+
+ | Global Training Round : 98 |
+
+Remain energy: 9999880.333590046
+{'intra-comm': 8.10912491706776, 'inter-comm': 1.939671670234069, 'local-update': 9.79999999996733, 'default': 0.0} 19.84879658726916
+
+ | Global Training Round : 99 |
+
+Remain energy: 9999880.151200216
+{'intra-comm': 8.194784922137387, 'inter-comm': 2.019413093571494, 'local-update': 9.899999999963544, 'default': 0.0} 20.114198015672425
+
+ | Global Training Round : 100 |
+
+Remain energy: 9999879.885798754
+{'intra-comm': 8.275325280158938, 'inter-comm': 2.019413093571494, 'local-update': 9.999999999959758, 'default': 0.0} 20.29473837369019
+
+ | Global Training Round : 101 |
+
+Remain energy: 9999879.705258366
+{'intra-comm': 8.358847857978626, 'inter-comm': 2.019413093571494, 'local-update': 10.099999999955973, 'default': 0.0} 20.478260951506094
+
+ | Global Training Round : 102 |
+
+Remain energy: 9999879.52173575
+{'intra-comm': 8.444160660916678, 'inter-comm': 2.0486106107520112, 'local-update': 10.199999999952187, 'default': 0.0} 20.692771271620877
+
+ | Global Training Round : 103 |
+
+Remain energy: 9999879.3072254
+{'intra-comm': 8.526609081371035, 'inter-comm': 2.0486106107520112, 'local-update': 10.299999999948401, 'default': 0.0} 20.875219692071447
+
+ | Global Training Round : 104 |
+
+Remain energy: 9999879.124776945
+{'intra-comm': 8.606690206174045, 'inter-comm': 2.0486106107520112, 'local-update': 10.399999999944615, 'default': 0.0} 21.05530081687067
+
+ | Global Training Round : 105 |
+
+Remain energy: 9999878.944695791
+{'intra-comm': 8.692389740963263, 'inter-comm': 2.1085791609745264, 'local-update': 10.49999999994083, 'default': 0.0} 21.30096890187862
+
+ | Global Training Round : 106 |
+
+Remain energy: 9999878.699027672
+{'intra-comm': 8.766836009213874, 'inter-comm': 2.1085791609745264, 'local-update': 10.599999999937044, 'default': 0.0} 21.475415170125444
+
+ | Global Training Round : 107 |
+
+Remain energy: 9999878.524581373
+{'intra-comm': 8.848453235965765, 'inter-comm': 2.1085791609745264, 'local-update': 10.699999999933258, 'default': 0.0} 21.65703239687355
+
+ | Global Training Round : 108 |
+
+Remain energy: 9999878.342964109
+{'intra-comm': 8.942112413972716, 'inter-comm': 2.1623971272815914, 'local-update': 10.799999999929472, 'default': 0.0} 21.904509541183778
+
+ | Global Training Round : 109 |
+
+Remain energy: 9999878.095486937
+{'intra-comm': 9.026072759297527, 'inter-comm': 2.1623971272815914, 'local-update': 10.899999999925686, 'default': 0.0} 22.088469886504804
+
+ | Global Training Round : 110 |
+
+Remain energy: 9999877.91152656
+{'intra-comm': 9.111408537224937, 'inter-comm': 2.1623971272815914, 'local-update': 10.9999999999219, 'default': 0.0} 22.27380566442843
+
+ | Global Training Round : 111 |
+
+Remain energy: 9999877.726190746
+{'intra-comm': 9.188559259936131, 'inter-comm': 2.207453670431476, 'local-update': 11.099999999918115, 'default': 0.0} 22.496012930285723
+
+ | Global Training Round : 112 |
+
+Remain energy: 9999877.50398345
+{'intra-comm': 9.2625860822647, 'inter-comm': 2.207453670431476, 'local-update': 11.19999999991433, 'default': 0.0} 22.670039752610506
+
+ | Global Training Round : 113 |
+
+Remain energy: 9999877.329956597
+{'intra-comm': 9.350489452292024, 'inter-comm': 2.207453670431476, 'local-update': 11.299999999910543, 'default': 0.0} 22.857943122634044
+
+ | Global Training Round : 114 |
+
+Remain energy: 9999877.142053194
+{'intra-comm': 9.439910023390688, 'inter-comm': 2.2592966512713297, 'local-update': 11.399999999906758, 'default': 0.0} 23.099206674568777
+
+ | Global Training Round : 115 |
+
+Remain energy: 9999876.900789604
+{'intra-comm': 9.522402101026033, 'inter-comm': 2.2592966512713297, 'local-update': 11.499999999902972, 'default': 0.0} 23.281698752200334
+
+ | Global Training Round : 116 |
+
+Remain energy: 9999876.718297496
+{'intra-comm': 9.59603851378423, 'inter-comm': 2.2592966512713297, 'local-update': 11.599999999899186, 'default': 0.0} 23.455335164954747
+
+ | Global Training Round : 117 |
+
+Remain energy: 9999876.544661045
+{'intra-comm': 9.677111812767375, 'inter-comm': 2.290187436233025, 'local-update': 11.6999999998954, 'default': 0.0} 23.6672992488958
+
+ | Global Training Round : 118 |
+
+Remain energy: 9999876.332696939
+{'intra-comm': 9.764236999891283, 'inter-comm': 2.290187436233025, 'local-update': 11.799999999891615, 'default': 0.0} 23.854424436015922
+
+ | Global Training Round : 119 |
+
+Remain energy: 9999876.145571716
+{'intra-comm': 9.843902155580691, 'inter-comm': 2.290187436233025, 'local-update': 11.899999999887829, 'default': 0.0} 24.034089591701544
+
+ | Global Training Round : 120 |
+
+Remain energy: 9999875.965906523
+{'intra-comm': 9.922908013652437, 'inter-comm': 2.3517097326233887, 'local-update': 11.999999999884043, 'default': 0.0} 24.27461774615987
+ 13%|█▎        | 126/1000 [00:02<00:14, 61.25it/s] 13%|█▎        | 133/1000 [00:02<00:14, 61.54it/s] 14%|█▍        | 140/1000 [00:02<00:13, 61.81it/s] 15%|█▍        | 147/1000 [00:02<00:13, 61.78it/s] 15%|█▌        | 154/1000 [00:02<00:13, 61.89it/s]
+ | Global Training Round : 121 |
+
+Remain energy: 9999875.725378338
+{'intra-comm': 10.006930391454791, 'inter-comm': 2.3517097326233887, 'local-update': 12.099999999880257, 'default': 0.0} 24.45864012395844
+
+ | Global Training Round : 122 |
+
+Remain energy: 9999875.54135593
+{'intra-comm': 10.089217513132663, 'inter-comm': 2.3517097326233887, 'local-update': 12.199999999876471, 'default': 0.0} 24.640927245632525
+
+ | Global Training Round : 123 |
+
+Remain energy: 9999875.359068772
+{'intra-comm': 10.167943078999244, 'inter-comm': 2.399131423193552, 'local-update': 12.299999999872686, 'default': 0.0} 24.86707450206548
+
+ | Global Training Round : 124 |
+
+Remain energy: 9999875.132921485
+{'intra-comm': 10.253119955127184, 'inter-comm': 2.399131423193552, 'local-update': 12.3999999998689, 'default': 0.0} 25.052251378189638
+
+ | Global Training Round : 125 |
+
+Remain energy: 9999874.94774458
+{'intra-comm': 10.326708458537873, 'inter-comm': 2.399131423193552, 'local-update': 12.499999999865114, 'default': 0.0} 25.22583988159654
+
+ | Global Training Round : 126 |
+
+Remain energy: 9999874.77415604
+{'intra-comm': 10.41717149841828, 'inter-comm': 2.4509271896664266, 'local-update': 12.599999999861328, 'default': 0.0} 25.468098687946036
+
+ | Global Training Round : 127 |
+
+Remain energy: 9999874.531897204
+{'intra-comm': 10.503657183824236, 'inter-comm': 2.4509271896664266, 'local-update': 12.699999999857543, 'default': 0.0} 25.654584373348207
+
+ | Global Training Round : 128 |
+
+Remain energy: 9999874.345411485
+{'intra-comm': 10.582084688251182, 'inter-comm': 2.4509271896664266, 'local-update': 12.799999999853757, 'default': 0.0} 25.833011877771366
+
+ | Global Training Round : 129 |
+
+Remain energy: 9999874.166983942
+{'intra-comm': 10.663050037970745, 'inter-comm': 2.476481424917965, 'local-update': 12.899999999849971, 'default': 0.0} 26.03953146273868
+
+ | Global Training Round : 130 |
+
+Remain energy: 9999873.960464327
+{'intra-comm': 10.74836967954971, 'inter-comm': 2.476481424917965, 'local-update': 12.999999999846185, 'default': 0.0} 26.22485110431386
+
+ | Global Training Round : 131 |
+
+Remain energy: 9999873.775144659
+{'intra-comm': 10.827185504857857, 'inter-comm': 2.476481424917965, 'local-update': 13.0999999998424, 'default': 0.0} 26.403666929618222
+
+ | Global Training Round : 132 |
+
+Remain energy: 9999873.596328795
+{'intra-comm': 10.920938690324258, 'inter-comm': 2.509270041652051, 'local-update': 13.199999999838614, 'default': 0.0} 26.630208731814925
+
+ | Global Training Round : 133 |
+
+Remain energy: 9999873.369786961
+{'intra-comm': 11.000229531294902, 'inter-comm': 2.509270041652051, 'local-update': 13.299999999834828, 'default': 0.0} 26.80949957278178
+
+ | Global Training Round : 134 |
+
+Remain energy: 9999873.19049609
+{'intra-comm': 11.082817917496603, 'inter-comm': 2.509270041652051, 'local-update': 13.399999999831042, 'default': 0.0} 26.992087958979695
+
+ | Global Training Round : 135 |
+
+Remain energy: 9999873.007907672
+{'intra-comm': 11.157783684374436, 'inter-comm': 2.555795106421115, 'local-update': 13.499999999827256, 'default': 0.0} 27.213578790622808
+
+ | Global Training Round : 136 |
+
+Remain energy: 9999872.786416808
+{'intra-comm': 11.234344036152965, 'inter-comm': 2.555795106421115, 'local-update': 13.59999999982347, 'default': 0.0} 27.39013914239755
+
+ | Global Training Round : 137 |
+
+Remain energy: 9999872.609856423
+{'intra-comm': 11.315054268940315, 'inter-comm': 2.555795106421115, 'local-update': 13.699999999819685, 'default': 0.0} 27.570849375181115
+
+ | Global Training Round : 138 |
+
+Remain energy: 9999872.429146152
+{'intra-comm': 11.40436823720325, 'inter-comm': 2.6682873763911776, 'local-update': 13.799999999815899, 'default': 0.0} 27.872655613410327
+
+ | Global Training Round : 139 |
+
+Remain energy: 9999872.127339883
+{'intra-comm': 11.486975968682342, 'inter-comm': 2.6682873763911776, 'local-update': 13.899999999812113, 'default': 0.0} 28.05526334488563
+
+ | Global Training Round : 140 |
+
+Remain energy: 9999871.94473212
+{'intra-comm': 11.56973907734415, 'inter-comm': 2.6682873763911776, 'local-update': 13.999999999808328, 'default': 0.0} 28.238026453543654
+
+ | Global Training Round : 141 |
+
+Remain energy: 9999871.761968974
+{'intra-comm': 11.646616888751511, 'inter-comm': 2.7019305701675616, 'local-update': 14.099999999804542, 'default': 0.0} 28.448547458723617
+
+ | Global Training Round : 142 |
+
+Remain energy: 9999871.551447943
+{'intra-comm': 11.733332277588309, 'inter-comm': 2.7019305701675616, 'local-update': 14.199999999800756, 'default': 0.0} 28.635262847556625
+
+ | Global Training Round : 143 |
+
+Remain energy: 9999871.36473252
+{'intra-comm': 11.81966016386632, 'inter-comm': 2.7019305701675616, 'local-update': 14.29999999979697, 'default': 0.0} 28.821590733830853
+
+ | Global Training Round : 144 |
+
+Remain energy: 9999871.178404603
+{'intra-comm': 11.893458025069963, 'inter-comm': 2.759461452772183, 'local-update': 14.399999999793184, 'default': 0.0} 29.052919477635328
+
+ | Global Training Round : 145 |
+
+Remain energy: 9999870.947075821
+{'intra-comm': 11.980475862589225, 'inter-comm': 2.759461452772183, 'local-update': 14.499999999789399, 'default': 0.0} 29.239937315150804
+
+ | Global Training Round : 146 |
+
+Remain energy: 9999870.76005795
+{'intra-comm': 12.060297087615089, 'inter-comm': 2.759461452772183, 'local-update': 14.599999999785613, 'default': 0.0} 29.419758540172886
+
+ | Global Training Round : 147 |
+
+Remain energy: 9999870.580236696
+{'intra-comm': 12.133620151349891, 'inter-comm': 2.8079029301431913, 'local-update': 14.699999999781827, 'default': 0.0} 29.64152308127491
+
+ | Global Training Round : 148 |
+
+Remain energy: 9999870.358472118
+{'intra-comm': 12.219929915379549, 'inter-comm': 2.8079029301431913, 'local-update': 14.799999999778041, 'default': 0.0} 29.827832845300783
+
+ | Global Training Round : 149 |
+
+Remain energy: 9999870.172162324
+{'intra-comm': 12.305343957646897, 'inter-comm': 2.8079029301431913, 'local-update': 14.899999999774256, 'default': 0.0} 30.013246887564343
+
+ | Global Training Round : 150 |
+
+Remain energy: 9999869.98674825
+{'intra-comm': 12.386698527058256, 'inter-comm': 2.8579730821663514, 'local-update': 14.99999999977047, 'default': 0.0} 30.244671608995077
+
+ | Global Training Round : 151 |
+
+Remain energy: 9999869.755323498
+{'intra-comm': 12.465704129715478, 'inter-comm': 2.8579730821663514, 'local-update': 15.099999999766684, 'default': 0.0} 30.423677211648513
+
+ | Global Training Round : 152 |
+
+Remain energy: 9999869.576317862
+{'intra-comm': 12.556426302926608, 'inter-comm': 2.8579730821663514, 'local-update': 15.199999999762898, 'default': 0.0} 30.614399384855858
+
+ | Global Training Round : 153 |
+
+Remain energy: 9999869.385595653
+{'intra-comm': 12.641213849820094, 'inter-comm': 2.930326966155306, 'local-update': 15.299999999759113, 'default': 0.0} 30.871540815734512
+
+ | Global Training Round : 154 |
+
+Remain energy: 9999869.128454192
+{'intra-comm': 12.72847743511665, 'inter-comm': 2.930326966155306, 'local-update': 15.399999999755327, 'default': 0.0} 31.05880440102728
+
+ | Global Training Round : 155 |
+
+Remain energy: 9999868.941190576
+{'intra-comm': 12.806421724523203, 'inter-comm': 2.930326966155306, 'local-update': 15.499999999751541, 'default': 0.0} 31.236748690430048
+
+ | Global Training Round : 156 |
+
+Remain energy: 9999868.763246251
+{'intra-comm': 12.888037808910317, 'inter-comm': 2.9662238857246566, 'local-update': 15.599999999747755, 'default': 0.0} 31.45426169438273
+
+ | Global Training Round : 157 |
+
+Remain energy: 9999868.545733217
+{'intra-comm': 12.974129645894086, 'inter-comm': 2.9662238857246566, 'local-update': 15.69999999974397, 'default': 0.0} 31.640353531362713
+
+ | Global Training Round : 158 |
+
+Remain energy: 9999868.359641341
+{'intra-comm': 13.057445747351359, 'inter-comm': 2.9662238857246566, 'local-update': 15.799999999740184, 'default': 0.0} 31.8236696328162
+
+ | Global Training Round : 159 |
+
+Remain energy: 9999868.176325213
+{'intra-comm': 13.14291581566882, 'inter-comm': 3.0005255510841002, 'local-update': 15.899999999736398, 'default': 0.0} 32.04344136648932
+
+ | Global Training Round : 160 |
+
+Remain energy: 9999867.956553448
+ 16%|█▌        | 161/1000 [00:02<00:13, 61.89it/s] 17%|█▋        | 168/1000 [00:02<00:13, 61.77it/s] 18%|█▊        | 175/1000 [00:02<00:13, 61.25it/s] 18%|█▊        | 182/1000 [00:02<00:13, 61.50it/s] 19%|█▉        | 189/1000 [00:03<00:13, 61.44it/s] 20%|█▉        | 196/1000 [00:03<00:13, 61.55it/s]{'intra-comm': 13.224238663225755, 'inter-comm': 3.0005255510841002, 'local-update': 15.999999999732612, 'default': 0.0} 32.224764214042466
+
+ | Global Training Round : 161 |
+
+Remain energy: 9999867.775230564
+{'intra-comm': 13.309345755658718, 'inter-comm': 3.0005255510841002, 'local-update': 16.099999999728826, 'default': 0.0} 32.40987130647164
+
+ | Global Training Round : 162 |
+
+Remain energy: 9999867.59012344
+{'intra-comm': 13.391564346051162, 'inter-comm': 3.0964215502266, 'local-update': 16.19999999972504, 'default': 0.0} 32.6879858960028
+
+ | Global Training Round : 163 |
+
+Remain energy: 9999867.31200882
+{'intra-comm': 13.473534465778664, 'inter-comm': 3.0964215502266, 'local-update': 16.299999999721255, 'default': 0.0} 32.869956015726515
+
+ | Global Training Round : 164 |
+
+Remain energy: 9999867.130038664
+{'intra-comm': 13.55498460134979, 'inter-comm': 3.0964215502266, 'local-update': 16.39999999971747, 'default': 0.0} 33.05140615129386
+
+ | Global Training Round : 165 |
+
+Remain energy: 9999866.948588498
+{'intra-comm': 13.631996317656577, 'inter-comm': 3.150241767984775, 'local-update': 16.499999999713683, 'default': 0.0} 33.28223808535503
+
+ | Global Training Round : 166 |
+
+Remain energy: 9999866.717756534
+{'intra-comm': 13.712491641343098, 'inter-comm': 3.150241767984775, 'local-update': 16.599999999709897, 'default': 0.0} 33.46273340903777
+
+ | Global Training Round : 167 |
+
+Remain energy: 9999866.537261177
+{'intra-comm': 13.802354490148458, 'inter-comm': 3.150241767984775, 'local-update': 16.69999999970611, 'default': 0.0} 33.65259625783935
+
+ | Global Training Round : 168 |
+
+Remain energy: 9999866.347398294
+{'intra-comm': 13.894800575139465, 'inter-comm': 3.200158552869028, 'local-update': 16.799999999702326, 'default': 0.0} 33.89495912771082
+
+ | Global Training Round : 169 |
+
+Remain energy: 9999866.105035396
+{'intra-comm': 13.973513291166883, 'inter-comm': 3.200158552869028, 'local-update': 16.89999999969854, 'default': 0.0} 34.07367184373445
+
+ | Global Training Round : 170 |
+
+Remain energy: 9999865.92632264
+{'intra-comm': 14.066485800621361, 'inter-comm': 3.200158552869028, 'local-update': 16.999999999694754, 'default': 0.0} 34.26664435318514
+
+ | Global Training Round : 171 |
+
+Remain energy: 9999865.733350106
+{'intra-comm': 14.145556844580689, 'inter-comm': 3.2337838439864743, 'local-update': 17.09999999969097, 'default': 0.0} 34.479340688258134
+
+ | Global Training Round : 172 |
+
+Remain energy: 9999865.520653732
+{'intra-comm': 14.224595392613569, 'inter-comm': 3.2337838439864743, 'local-update': 17.199999999687183, 'default': 0.0} 34.65837923628723
+
+ | Global Training Round : 173 |
+
+Remain energy: 9999865.341615148
+{'intra-comm': 14.299761506926563, 'inter-comm': 3.2337838439864743, 'local-update': 17.299999999683397, 'default': 0.0} 34.83354535059644
+
+ | Global Training Round : 174 |
+
+Remain energy: 9999865.166449009
+{'intra-comm': 14.383411838827985, 'inter-comm': 3.2943128809628615, 'local-update': 17.39999999967961, 'default': 0.0} 35.07772471947045
+
+ | Global Training Round : 175 |
+
+Remain energy: 9999864.922269603
+{'intra-comm': 14.467939829762836, 'inter-comm': 3.2943128809628615, 'local-update': 17.499999999675826, 'default': 0.0} 35.262252710401526
+
+ | Global Training Round : 176 |
+
+Remain energy: 9999864.737741577
+{'intra-comm': 14.552972276667932, 'inter-comm': 3.2943128809628615, 'local-update': 17.59999999967204, 'default': 0.0} 35.44728515730283
+
+ | Global Training Round : 177 |
+
+Remain energy: 9999864.5527091
+{'intra-comm': 14.639463442661693, 'inter-comm': 3.3704281333116293, 'local-update': 17.699999999668254, 'default': 0.0} 35.70989157564158
+
+ | Global Training Round : 178 |
+
+Remain energy: 9999864.290102651
+{'intra-comm': 14.716409310851466, 'inter-comm': 3.3704281333116293, 'local-update': 17.799999999664468, 'default': 0.0} 35.88683744382756
+
+ | Global Training Round : 179 |
+
+Remain energy: 9999864.11315675
+{'intra-comm': 14.791704208800502, 'inter-comm': 3.3704281333116293, 'local-update': 17.899999999660682, 'default': 0.0} 36.06213234177281
+
+ | Global Training Round : 180 |
+
+Remain energy: 9999863.93786182
+{'intra-comm': 14.873169778580868, 'inter-comm': 3.434345759681583, 'local-update': 17.999999999656897, 'default': 0.0} 36.30751553791934
+
+ | Global Training Round : 181 |
+
+Remain energy: 9999863.69247859
+{'intra-comm': 14.960491917039036, 'inter-comm': 3.434345759681583, 'local-update': 18.09999999965311, 'default': 0.0} 36.494837676373734
+
+ | Global Training Round : 182 |
+
+Remain energy: 9999863.505156422
+{'intra-comm': 15.043507870662093, 'inter-comm': 3.434345759681583, 'local-update': 18.199999999649325, 'default': 0.0} 36.677853629993
+
+ | Global Training Round : 183 |
+
+Remain energy: 9999863.322140433
+{'intra-comm': 15.125387389373278, 'inter-comm': 3.514169617215275, 'local-update': 18.29999999964554, 'default': 0.0} 36.9395570062341
+
+ | Global Training Round : 184 |
+
+Remain energy: 9999863.060437027
+{'intra-comm': 15.202876011211794, 'inter-comm': 3.514169617215275, 'local-update': 18.399999999641754, 'default': 0.0} 37.11704562806882
+
+ | Global Training Round : 185 |
+
+Remain energy: 9999862.882948367
+{'intra-comm': 15.284537154618919, 'inter-comm': 3.514169617215275, 'local-update': 18.499999999637968, 'default': 0.0} 37.29870677147216
+
+ | Global Training Round : 186 |
+
+Remain energy: 9999862.701287191
+{'intra-comm': 15.376478092444964, 'inter-comm': 3.568224709830235, 'local-update': 18.599999999634182, 'default': 0.0} 37.54470280190938
+
+ | Global Training Round : 187 |
+
+Remain energy: 9999862.455291124
+{'intra-comm': 15.461310844395857, 'inter-comm': 3.568224709830235, 'local-update': 18.699999999630396, 'default': 0.0} 37.72953555385649
+
+ | Global Training Round : 188 |
+
+Remain energy: 9999862.270458344
+{'intra-comm': 15.536208212442638, 'inter-comm': 3.568224709830235, 'local-update': 18.79999999962661, 'default': 0.0} 37.904432921899485
+
+ | Global Training Round : 189 |
+
+Remain energy: 9999862.095560947
+{'intra-comm': 15.618599758569257, 'inter-comm': 3.595987445460936, 'local-update': 18.899999999622825, 'default': 0.0} 38.114587203653016
+
+ | Global Training Round : 190 |
+
+Remain energy: 9999861.885406634
+{'intra-comm': 15.698621081131632, 'inter-comm': 3.595987445460936, 'local-update': 18.99999999961904, 'default': 0.0} 38.294608526211604
+
+ | Global Training Round : 191 |
+
+Remain energy: 9999861.705385273
+{'intra-comm': 15.777623025675894, 'inter-comm': 3.595987445460936, 'local-update': 19.099999999615253, 'default': 0.0} 38.47361047075208
+
+ | Global Training Round : 192 |
+
+Remain energy: 9999861.526383301
+{'intra-comm': 15.864273192484568, 'inter-comm': 3.683579177221231, 'local-update': 19.199999999611467, 'default': 0.0} 38.747852369317265
+
+ | Global Training Round : 193 |
+
+Remain energy: 9999861.252141362
+{'intra-comm': 15.949564167503206, 'inter-comm': 3.683579177221231, 'local-update': 19.29999999960768, 'default': 0.0} 38.93314334433212
+
+ | Global Training Round : 194 |
+
+Remain energy: 9999861.066850359
+{'intra-comm': 16.02941954481001, 'inter-comm': 3.683579177221231, 'local-update': 19.399999999603896, 'default': 0.0} 39.11299872163514
+
+ | Global Training Round : 195 |
+
+Remain energy: 9999860.886994947
+{'intra-comm': 16.11182535400258, 'inter-comm': 3.725001258309785, 'local-update': 19.49999999960011, 'default': 0.0} 39.33682661191247
+
+ | Global Training Round : 196 |
+
+Remain energy: 9999860.663167028
+{'intra-comm': 16.190162779389492, 'inter-comm': 3.725001258309785, 'local-update': 19.599999999596324, 'default': 0.0} 39.515164037295605
+
+ | Global Training Round : 197 |
+
+Remain energy: 9999860.484829567
+{'intra-comm': 16.26644207963572, 'inter-comm': 3.725001258309785, 'local-update': 19.69999999959254, 'default': 0.0} 39.69144333753805
+
+ | Global Training Round : 198 |
+
+Remain energy: 9999860.308550237
+{'intra-comm': 16.34847690397491, 'inter-comm': 3.7676066540048874, 'local-update': 19.799999999588753, 'default': 0.0} 39.91608355756855
+
+ | Global Training Round : 199 |
+
+Remain energy: 9999860.083909985
+{'intra-comm': 16.426521615585628, 'inter-comm': 3.7676066540048874, 'local-update': 19.899999999584967, 'default': 0.0} 40.094128269175485
+ 20%|██        | 203/1000 [00:03<00:12, 61.59it/s] 21%|██        | 210/1000 [00:03<00:12, 61.57it/s] 22%|██▏       | 217/1000 [00:03<00:13, 58.41it/s] 22%|██▏       | 224/1000 [00:03<00:12, 59.88it/s] 23%|██▎       | 231/1000 [00:03<00:12, 60.32it/s] 24%|██▍       | 238/1000 [00:03<00:12, 61.39it/s]
+ | Global Training Round : 200 |
+
+Remain energy: 9999859.905865237
+{'intra-comm': 16.502288327205726, 'inter-comm': 3.7676066540048874, 'local-update': 19.99999999958118, 'default': 0.0} 40.26989498079179
+
+ | Global Training Round : 201 |
+
+Remain energy: 9999859.730098493
+{'intra-comm': 16.585267906677327, 'inter-comm': 3.78657121675649, 'local-update': 20.099999999577395, 'default': 0.0} 40.47183912301121
+
+ | Global Training Round : 202 |
+
+Remain energy: 9999859.528154321
+{'intra-comm': 16.665348972290165, 'inter-comm': 3.78657121675649, 'local-update': 20.19999999957361, 'default': 0.0} 40.65192018862027
+
+ | Global Training Round : 203 |
+
+Remain energy: 9999859.348073222
+{'intra-comm': 16.75608672301575, 'inter-comm': 3.78657121675649, 'local-update': 20.299999999569824, 'default': 0.0} 40.84265793934206
+
+ | Global Training Round : 204 |
+
+Remain energy: 9999859.157335438
+{'intra-comm': 16.84581723812827, 'inter-comm': 3.835401474774526, 'local-update': 20.399999999566038, 'default': 0.0} 41.08121871246883
+
+ | Global Training Round : 205 |
+
+Remain energy: 9999858.918774633
+{'intra-comm': 16.928802252640775, 'inter-comm': 3.835401474774526, 'local-update': 20.499999999562252, 'default': 0.0} 41.264203726977556
+
+ | Global Training Round : 206 |
+
+Remain energy: 9999858.735789582
+{'intra-comm': 17.005589322650497, 'inter-comm': 3.835401474774526, 'local-update': 20.599999999558467, 'default': 0.0} 41.440990796983485
+
+ | Global Training Round : 207 |
+
+Remain energy: 9999858.559002481
+{'intra-comm': 17.08430368824882, 'inter-comm': 3.903674336973368, 'local-update': 20.69999999955468, 'default': 0.0} 41.68797802477687
+
+ | Global Training Round : 208 |
+
+Remain energy: 9999858.312015222
+{'intra-comm': 17.163012984465112, 'inter-comm': 3.903674336973368, 'local-update': 20.799999999550895, 'default': 0.0} 41.86668732098937
+
+ | Global Training Round : 209 |
+
+Remain energy: 9999858.133305896
+{'intra-comm': 17.242489128234322, 'inter-comm': 3.903674336973368, 'local-update': 20.89999999954711, 'default': 0.0} 42.0461634647548
+
+ | Global Training Round : 210 |
+
+Remain energy: 9999857.953829717
+{'intra-comm': 17.32813045991186, 'inter-comm': 3.97859864631862, 'local-update': 20.999999999543324, 'default': 0.0} 42.306729105773805
+
+ | Global Training Round : 211 |
+
+Remain energy: 9999857.693264047
+{'intra-comm': 17.40953001975353, 'inter-comm': 3.97859864631862, 'local-update': 21.099999999539538, 'default': 0.0} 42.48812866561168
+
+ | Global Training Round : 212 |
+
+Remain energy: 9999857.511864448
+{'intra-comm': 17.491874362490236, 'inter-comm': 3.97859864631862, 'local-update': 21.199999999535752, 'default': 0.0} 42.67047300834461
+
+ | Global Training Round : 213 |
+
+Remain energy: 9999857.329520077
+{'intra-comm': 17.575903716869924, 'inter-comm': 4.010424337342181, 'local-update': 21.299999999531966, 'default': 0.0} 42.886328053744066
+
+ | Global Training Round : 214 |
+
+Remain energy: 9999857.113664996
+{'intra-comm': 17.658260242218994, 'inter-comm': 4.010424337342181, 'local-update': 21.39999999952818, 'default': 0.0} 43.06868457908935
+
+ | Global Training Round : 215 |
+
+Remain energy: 9999856.93130844
+{'intra-comm': 17.738233951065887, 'inter-comm': 4.010424337342181, 'local-update': 21.499999999524395, 'default': 0.0} 43.24865828793246
+
+ | Global Training Round : 216 |
+
+Remain energy: 9999856.751334697
+{'intra-comm': 17.816200870783224, 'inter-comm': 4.057999113652534, 'local-update': 21.59999999952061, 'default': 0.0} 43.47419998395637
+
+ | Global Training Round : 217 |
+
+Remain energy: 9999856.525792968
+{'intra-comm': 17.891022082443673, 'inter-comm': 4.057999113652534, 'local-update': 21.699999999516823, 'default': 0.0} 43.64902119561303
+
+ | Global Training Round : 218 |
+
+Remain energy: 9999856.350971725
+{'intra-comm': 17.982495140978756, 'inter-comm': 4.057999113652534, 'local-update': 21.799999999513037, 'default': 0.0} 43.84049425414433
+
+ | Global Training Round : 219 |
+
+Remain energy: 9999856.159498636
+{'intra-comm': 18.072803211397027, 'inter-comm': 4.12670677409755, 'local-update': 21.89999999950925, 'default': 0.0} 44.09950998500383
+
+ | Global Training Round : 220 |
+
+Remain energy: 9999855.900482869
+{'intra-comm': 18.163148777578158, 'inter-comm': 4.12670677409755, 'local-update': 21.999999999505466, 'default': 0.0} 44.28985555118118
+
+ | Global Training Round : 221 |
+
+Remain energy: 9999855.71013727
+{'intra-comm': 18.2420605516074, 'inter-comm': 4.12670677409755, 'local-update': 22.09999999950168, 'default': 0.0} 44.46876732520663
+
+ | Global Training Round : 222 |
+
+Remain energy: 9999855.531225463
+{'intra-comm': 18.324990193752758, 'inter-comm': 4.155288540275252, 'local-update': 22.199999999497894, 'default': 0.0} 44.6802787335259
+
+ | Global Training Round : 223 |
+
+Remain energy: 9999855.319714025
+{'intra-comm': 18.408170595046695, 'inter-comm': 4.155288540275252, 'local-update': 22.29999999949411, 'default': 0.0} 44.863459134816054
+
+ | Global Training Round : 224 |
+
+Remain energy: 9999855.13653359
+{'intra-comm': 18.488692712761672, 'inter-comm': 4.155288540275252, 'local-update': 22.399999999490323, 'default': 0.0} 45.043981252527246
+
+ | Global Training Round : 225 |
+
+Remain energy: 9999854.956011437
+{'intra-comm': 18.57128326214863, 'inter-comm': 4.185087433854154, 'local-update': 22.499999999486537, 'default': 0.0} 45.25637069548932
+
+ | Global Training Round : 226 |
+
+Remain energy: 9999854.743621966
+{'intra-comm': 18.646490037017486, 'inter-comm': 4.185087433854154, 'local-update': 22.59999999948275, 'default': 0.0} 45.43157747035439
+
+ | Global Training Round : 227 |
+
+Remain energy: 9999854.568415157
+{'intra-comm': 18.728715764654087, 'inter-comm': 4.185087433854154, 'local-update': 22.699999999478965, 'default': 0.0} 45.61380319798721
+
+ | Global Training Round : 228 |
+
+Remain energy: 9999854.386189397
+{'intra-comm': 18.81785103466828, 'inter-comm': 4.249093272820724, 'local-update': 22.79999999947518, 'default': 0.0} 45.866944306964186
+
+ | Global Training Round : 229 |
+
+Remain energy: 9999854.133048255
+{'intra-comm': 18.895239551411223, 'inter-comm': 4.249093272820724, 'local-update': 22.899999999471394, 'default': 0.0} 46.04433282370334
+
+ | Global Training Round : 230 |
+
+Remain energy: 9999853.955659704
+{'intra-comm': 18.97680856899727, 'inter-comm': 4.249093272820724, 'local-update': 22.999999999467608, 'default': 0.0} 46.225901841285605
+
+ | Global Training Round : 231 |
+
+Remain energy: 9999853.774090655
+{'intra-comm': 19.061954411806664, 'inter-comm': 4.2712554242799765, 'local-update': 23.099999999463822, 'default': 0.0} 46.43320983555046
+
+ | Global Training Round : 232 |
+
+Remain energy: 9999853.566782622
+{'intra-comm': 19.145107510199303, 'inter-comm': 4.2712554242799765, 'local-update': 23.199999999460037, 'default': 0.0} 46.616362933939314
+
+ | Global Training Round : 233 |
+
+Remain energy: 9999853.383629495
+{'intra-comm': 19.22209131988094, 'inter-comm': 4.2712554242799765, 'local-update': 23.29999999945625, 'default': 0.0} 46.793346743617164
+
+ | Global Training Round : 234 |
+
+Remain energy: 9999853.20664566
+{'intra-comm': 19.303534337274787, 'inter-comm': 4.306561155970812, 'local-update': 23.399999999452465, 'default': 0.0} 47.01009549269806
+
+ | Global Training Round : 235 |
+
+Remain energy: 9999852.989896879
+{'intra-comm': 19.389488062417293, 'inter-comm': 4.306561155970812, 'local-update': 23.49999999944868, 'default': 0.0} 47.19604921783679
+
+ | Global Training Round : 236 |
+
+Remain energy: 9999852.80394312
+{'intra-comm': 19.46475083030407, 'inter-comm': 4.306561155970812, 'local-update': 23.599999999444893, 'default': 0.0} 47.37131198571977
+
+ | Global Training Round : 237 |
+
+Remain energy: 9999852.628680315
+{'intra-comm': 19.545366075760956, 'inter-comm': 4.435956561173789, 'local-update': 23.699999999441108, 'default': 0.0} 47.68132263637585
+
+ | Global Training Round : 238 |
+
+Remain energy: 9999852.318669632
+{'intra-comm': 19.629344293491663, 'inter-comm': 4.435956561173789, 'local-update': 23.799999999437322, 'default': 0.0} 47.86530085410277
+
+ | Global Training Round : 239 |
+
+Remain energy: 9999852.134691382
+ 24%|██▍       | 245/1000 [00:03<00:12, 61.77it/s] 25%|██▍       | 249/1000 [00:04<00:12, 61.28it/s]
+{'intra-comm': 19.708853250313233, 'inter-comm': 4.435956561173789, 'local-update': 23.899999999433536, 'default': 0.0} 48.044809810920555
+
+ | Global Training Round : 240 |
+
+Remain energy: 9999851.955182396
+{'intra-comm': 19.796561539396304, 'inter-comm': 4.518106387500722, 'local-update': 23.99999999942975, 'default': 0.0} 48.31466792632678
+
+ | Global Training Round : 241 |
+
+Remain energy: 9999851.68532424
+{'intra-comm': 19.87746783714678, 'inter-comm': 4.518106387500722, 'local-update': 24.099999999425965, 'default': 0.0} 48.495574224073465
+
+ | Global Training Round : 242 |
+
+Remain energy: 9999851.504417913
+{'intra-comm': 19.961581561927233, 'inter-comm': 4.518106387500722, 'local-update': 24.19999999942218, 'default': 0.0} 48.67968794885013
+
+ | Global Training Round : 243 |
+
+Remain energy: 9999851.320304157
+{'intra-comm': 20.04489528343622, 'inter-comm': 4.554510383386393, 'local-update': 24.299999999418393, 'default': 0.0} 48.89940566624101
+
+ | Global Training Round : 244 |
+
+Remain energy: 9999851.100586407
+{'intra-comm': 20.130291380656292, 'inter-comm': 4.554510383386393, 'local-update': 24.399999999414607, 'default': 0.0} 49.08480176345729
+
+ | Global Training Round : 245 |
+
+Remain energy: 9999850.915190276
+{'intra-comm': 20.213007988944565, 'inter-comm': 4.554510383386393, 'local-update': 24.49999999941082, 'default': 0.0} 49.26751837174178
+
+ | Global Training Round : 246 |
+
+Remain energy: 9999850.732473634
+{'intra-comm': 20.293748210354902, 'inter-comm': 4.6057385318657165, 'local-update': 24.599999999407036, 'default': 0.0} 49.49948674162765
+
+ | Global Training Round : 247 |
+
+Remain energy: 9999850.500505239
+{'intra-comm': 20.37339187632464, 'inter-comm': 4.6057385318657165, 'local-update': 24.69999999940325, 'default': 0.0} 49.679130407593604
+
+ | Global Training Round : 248 |
+
+Remain energy: 9999850.320861533
+{'intra-comm': 20.456628299470456, 'inter-comm': 4.6057385318657165, 'local-update': 24.799999999399464, 'default': 0.0} 49.86236683073564
+
+ | Global Training Round : 249 |
+
+Remain energy: 9999850.137625074
+{'intra-comm': 20.535329395288468, 'inter-comm': 4.686943191108951, 'local-update': 24.89999999939568, 'default': 0.0} 50.1222725857931
+
+ | Global Training Round : 250 |
+
+Remain energy: 9999849.877719292
+
+ Terminated for using up energy budget (50 J)!
+
+ Total Run Time: 12.1814

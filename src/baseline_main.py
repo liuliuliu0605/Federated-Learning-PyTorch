@@ -14,7 +14,7 @@ from torch.utils.data import DataLoader
 from utils import get_dataset, get_device, init_seed
 from options import args_parser
 from update import test_inference
-from models import MLP, CNNMnist, CNNFashion_Mnist, CNNCifar
+from models import MLP, CNNMnist, CNNFashion_Mnist, CNNCifar, LR
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.utils.data.distributed import DistributedSampler
 
@@ -55,6 +55,13 @@ if __name__ == '__main__':
             len_in *= x
             global_model = MLP(dim_in=len_in, dim_hidden=64,
                                dim_out=args.num_classes)
+    elif args.model == 'lr':
+        # Logistic regression
+        img_size = train_dataset[0][0].shape
+        len_in = 1
+        for x in img_size:
+            len_in *= x
+        global_model = LR(dim_in=len_in, dim_out=args.num_classes)
     else:
         exit('Error: unrecognized model')
 
@@ -89,7 +96,7 @@ if __name__ == '__main__':
     sampler = DistributedSampler(train_dataset) if local_rank != -1 else None
     trainloader = DataLoader(train_dataset, sampler=sampler, batch_size=int(64/world_size),
                              shuffle=True if sampler is None else False)
-    criterion = torch.nn.NLLLoss().to(device)
+    criterion = torch.nn.CrossEntropyLoss().to(device)
     epoch_loss = []
 
     for epoch in tqdm(range(args.epochs)):
@@ -104,7 +111,9 @@ if __name__ == '__main__':
             outputs = global_model(images)
             loss = criterion(outputs, labels)
             loss.backward()
+
             optimizer.step()
+            optimizer.zero_grad()
 
             batch_idx = batch_idx * world_size + local_rank if local_rank != -1 else batch_idx
 

@@ -1,0 +1,65 @@
+Namespace(cluster_similarity=1.0, data_parallel=False, dataset='cifar', epochs=1000, fake=True, frac=1.0, gpu=1, iid=0, kernel_num=9, kernel_sizes='3,4,5', local_bs=10, local_ep=1, local_rank=None, lr=0.01, max_pool='True', mix_ep=10, model='cnn', momentum=0.5, norm='batch_norm', num_channels=1, num_classes=10, num_clusters=5, num_filters=32, num_users=100, optimizer='sgd', seed=1, stopping_rounds=10, topo='complete', unequal=0, verbose=0)
+
+Experimental details:
+    Model     : cnn
+    Optimizer : sgd
+    Learning  : 0.01
+    Global Rounds   : 1000
+    Local Epoches   : 1
+    Mix Epoches     : 10
+
+Network details:
+    Users       : 100
+    Clusters    : 5
+    Topology    : complete
+    Cluster Similarity : 1.0
+
+Federated parameters:
+    Non-IID
+    Fraction of users  : 1.0
+    Local Batch size   : 10
+    Local Epochs       : 1
+
+../logs/2022-03-20_22:35:03_Dataset[cifar]_Cluster[5]_Sim[1.00]_Topo[complete]_Mix[10]_lr[0.010]_frac[1.0].pkl
+FCM: record cluster information at round -1
+Files already downloaded and verified
+Files already downloaded and verified
+[(0, 843), (1, 876), (2, 840), (3, 814), (4, 859), (5, 864), (6, 868), (7, 849), (8, 826), (9, 861)] 8500
+[[1, 2, 9, 13, 24, 26, 37, 47, 55, 60, 61, 64, 71, 72, 82, 95, 98], [0, 5, 6, 11, 14, 19, 21, 36, 42, 43, 45, 53, 57, 73, 75, 77, 85, 92, 94], [10, 12, 16, 18, 20, 29, 33, 34, 39, 40, 44, 48, 52, 54, 56, 58, 62, 63, 65, 69, 79, 81, 84, 87, 96, 97, 99], [17, 23, 27, 28, 31, 35, 38, 41, 51, 59, 66, 67, 68, 70, 74, 76, 86, 88, 90, 91], [3, 4, 7, 8, 15, 22, 25, 30, 32, 46, 49, 50, 78, 80, 83, 89, 93]]
+
+Label distribution in clusters:
+-Cluster 0:  [(0, 843), (1, 876), (2, 840), (3, 814), (4, 859), (5, 864), (6, 868), (7, 849), (8, 826), (9, 861)]
+-Cluster 1:  [(0, 942), (1, 935), (2, 978), (3, 953), (4, 949), (5, 929), (6, 932), (7, 975), (8, 964), (9, 943)]
+-Cluster 2:  [(0, 1352), (1, 1365), (2, 1313), (3, 1379), (4, 1360), (5, 1319), (6, 1357), (7, 1356), (8, 1347), (9, 1352)]
+-Cluster 3:  [(0, 1000), (1, 987), (2, 1028), (3, 994), (4, 992), (5, 1020), (6, 1025), (7, 953), (8, 1021), (9, 980)]
+-Cluster 4:  [(0, 863), (1, 837), (2, 841), (3, 860), (4, 840), (5, 868), (6, 818), (7, 867), (8, 842), (9, 864)]
+CNNCifar(
+  (conv1): Conv2d(3, 6, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(6, 16, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=400, out_features=120, bias=True)
+  (fc2): Linear(in_features=120, out_features=84, bias=True)
+  (fc3): Linear(in_features=84, out_features=10, bias=True)
+)
+num of params:  62006
+
+Topo (p=1.00000):
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+0.200,0.200,0.200,0.200,0.200
+  0%|          | 0/1000 [00:00<?, ?it/s]  0%|          | 1/1000 [00:00<00:13, 76.38it/s]
+
+ | Global Training Round : 1 |
+
+Remain energy: 9999900
+{'intra-comm': 40.86964355988418, 'inter-comm': 0, 'local-update': 49.604800000002406, 'default': 0.0} 90.4744435598866
+
+ | Global Training Round : 2 |
+
+Remain energy: 9999809.525556436
+
+ Terminated for using up energy budget (30 J)!
+
+ Total Run Time: 7.1245

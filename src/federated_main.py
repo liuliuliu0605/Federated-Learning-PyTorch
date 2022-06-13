@@ -11,12 +11,13 @@ import numpy as np
 from tqdm import tqdm
 
 import torch
+import datetime
 from tensorboardX import SummaryWriter
 
 from options import args_parser
 from update import LocalUpdate, test_inference
 from models import MLP, CNNMnist, CNNFashion_Mnist, CNNCifar
-from utils import get_dataset, average_weights, exp_details
+from utils import get_dataset, average_weights, exp_details, get_device
 
 
 if __name__ == '__main__':
@@ -24,14 +25,12 @@ if __name__ == '__main__':
 
     # define paths
     path_project = os.path.abspath('..')
-    logger = SummaryWriter('../logs')
+    logger = SummaryWriter('../logs/%s/' % datetime.datetime.now().strftime( '%Y-%m-%d %H:%M:%S'))
 
     args = args_parser()
     exp_details(args)
 
-    if args.gpu:
-        torch.cuda.set_device(args.gpu)
-    device = 'cuda' if args.gpu else 'cpu'
+    device = get_device(args)
 
     # load dataset and user groups
     train_dataset, test_dataset, user_groups = get_dataset(args)
@@ -95,18 +94,20 @@ if __name__ == '__main__':
         global_model.load_state_dict(global_weights)
 
         loss_avg = sum(local_losses) / len(local_losses)
-        train_loss.append(loss_avg)
+        logger.add_scalar('Train/loss', loss_avg, global_step=epoch)
 
         # Calculate avg training accuracy over all users at every epoch
         list_acc, list_loss = [], []
         global_model.eval()
         for c in range(args.num_users):
             local_model = LocalUpdate(args=args, dataset=train_dataset,
-                                      idxs=user_groups[idx], logger=logger)
+                                      idxs=user_groups[c], logger=logger)
             acc, loss = local_model.inference(model=global_model)
             list_acc.append(acc)
             list_loss.append(loss)
         train_accuracy.append(sum(list_acc)/len(list_acc))
+        train_loss.append(sum(list_loss)/len(list_loss))
+        logger.add_scalar('Train/acc', train_accuracy[-1], global_step=epoch)
 
         # print global training loss after every 'i' rounds
         if (epoch+1) % print_every == 0:
